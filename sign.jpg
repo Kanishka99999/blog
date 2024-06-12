@@ -1,0 +1,3634 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://www.cloudskillsboost.google/games/4422/labs/28604 -->
+<html lang="en" class="mdl-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="origin-trial" content="A89JPrWYXvEpNQ/xE+PjjlGJiBu/L2GfQcplC/QkDJOS1fBoX5Q4/HLfT1dXpD1td7C2peXE3bSCJiYdwoFcNgQAAACSeyJvcmlnaW4iOiJodHRwczovL3JlY2FwdGNoYS5uZXQ6NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZyIsImV4cGlyeSI6MTcyNTQwNzk5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A89JPrWYXvEpNQ/xE+PjjlGJiBu/L2GfQcplC/QkDJOS1fBoX5Q4/HLfT1dXpD1td7C2peXE3bSCJiYdwoFcNgQAAACSeyJvcmlnaW4iOiJodHRwczovL3JlY2FwdGNoYS5uZXQ6NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZyIsImV4cGlyeSI6MTcyNTQwNzk5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><style type="text/css" data-tag-name="trix-editor">trix-editor {
+    display: block;
+}
+
+trix-editor:empty:not(:focus)::before {
+    content: attr(placeholder);
+    color: graytext;
+    cursor: text;
+    pointer-events: none;
+    white-space: pre-line;
+}
+
+trix-editor a[contenteditable=false] {
+    cursor: text;
+}
+
+trix-editor img {
+    max-width: 100%;
+    height: auto;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea {
+    resize: none;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea.trix-autoresize-clone {
+    position: absolute;
+    left: -9999px;
+    max-height: 0px;
+}
+
+trix-editor [data-trix-attachment] figcaption[data-trix-placeholder]:empty::before {
+    content: attr(data-trix-placeholder);
+    color: graytext;
+}
+
+trix-editor [data-trix-cursor-target] {
+    display: inline-block !important;
+    width: 1px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+trix-editor [data-trix-cursor-target=left] {
+    vertical-align: top !important;
+    margin-left: -1px !important;
+}
+
+trix-editor [data-trix-cursor-target=right] {
+    vertical-align: bottom !important;
+    margin-right: -1px !important;
+}</style><style type="text/css" data-tag-name="trix-toolbar">trix-toolbar {
+  display: block;
+}
+
+trix-toolbar {
+  white-space: nowrap;
+}
+
+trix-toolbar [data-trix-dialog] {
+  display: none;
+}
+
+trix-toolbar [data-trix-dialog][data-trix-active] {
+  display: block;
+}
+
+trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
+  background-color: #ffdddd;
+}</style>
+<title>Extract, Analyze, and Translate Text from Images with the Cloud ML APIs | Google Cloud Skills Boost</title>
+<meta name="action-cable-url" content="/cable">
+<script src="./sign_files/cb=gapi.loaded_1" async=""></script><script src="./sign_files/cb=gapi.loaded_0" async=""></script><script async="true" type="text/javascript" src="./sign_files/js"></script><script async="true" type="text/javascript" src="./sign_files/analytics.js.download"></script><script type="text/javascript" async="" src="./sign_files/recaptcha__en.js.download" crossorigin="anonymous" integrity="sha384-ToIRK/fCxk6HZidjy8su24Pn+8FsKiX4QnuO0AfQZBcsd0m8DMaqafsc91h4byqU"></script><script type="text/javascript" async="" src="./sign_files/recaptcha__en.js.download" crossorigin="anonymous" integrity="sha384-ToIRK/fCxk6HZidjy8su24Pn+8FsKiX4QnuO0AfQZBcsd0m8DMaqafsc91h4byqU"></script><script async="" src="./sign_files/gtm.js.download"></script><script>
+//<![CDATA[
+window.gon={};gon.deployment="google-run";
+//]]>
+</script>
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer',"GTM-5XSKHDX");
+</script>
+<script src="./sign_files/js(1)" async="async"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', "G-2X30ZRBDSG", {
+    user_id: "12517500"
+  });
+</script>
+<script>
+  const properties = JSON.parse(atob('eyJsb2NhbGUiOiJlbiIsInN1YnNjcmlwdGlvbiI6Im1vbnRobHkiLCJ1c2VyX3JvbGVzIjoic3R1ZGVudCIsImZlYXR1cmVfdGVhbXMiOnRydWUsImZlYXR1cmVfY29tbXVuaXR5X2ZvcnVtIjp0cnVlLCJmZWF0dXJlX2Jhcmtlcl91aSI6ZmFsc2UsImZlYXR1cmVfYWJfY29udGVudF9nY3Atb25kZW1hbmQtY29udGVudC9ULUdPT0dBVi1CfHByb2plY3Qtc2Vla2hvLXB1YmxpYy1jYXRhbG9nfDEuMHwxLjEiOmZhbHNlLCJmZWF0dXJlX2FsZXhhbmRyaWFfc2hvd19idW5kbGVfZXJyb3JzIjp0cnVlLCJmZWF0dXJlX3RlbGxfbmF2eV9hbGxvd2VkX3pvbmVzIjpmYWxzZSwiZmVhdHVyZV9wcm9ncmFtX2xlYXJuaW5nX2Fzc2lnbm1lbnQiOnRydWUsImZlYXR1cmVfc2VhcmNoX3VwZGF0ZXMiOnRydWUsImZlYXR1cmVfYmFya2VyIjp0cnVlLCJmZWF0dXJlX3Byb2dyYW1fZ3JvdXBzIjp0cnVlLCJmZWF0dXJlX3BlcmZfdGVzdCI6ZmFsc2UsImZlYXR1cmVfc2hvd19hbm51YWxfcHVyY2hhc2Vfbm93Ijp0cnVlLCJmZWF0dXJlX2lsdF9jb250ZW50X3Byb2dyYW0iOmZhbHNlLCJmZWF0dXJlX2xvZ19jb29raWVzIjpmYWxzZSwiZmVhdHVyZV9wcm9ncmFtcyI6dHJ1ZSwiZmVhdHVyZV9wZXJzb25hbGl6ZWRfcXVlc3RzIjpmYWxzZSwiZmVhdHVyZV9jb3Vyc2VfdXBncmFkZSI6dHJ1ZSwiZmVhdHVyZV9jYW5vbmljYWxfZG9tYWluX3JlZGlyZWN0Ijp0cnVlLCJmZWF0dXJlX2VuZm9yY2VfY29kZWJ1aWxkX3ZlcmRpY3RzIjp0cnVlLCJmZWF0dXJlX2NvbXBsZXRpb25zX2Rhc2hib2FyZCI6ZmFsc2UsImZlYXR1cmVfY2hhdF9vZmZfZm9yX3NpZ25lZF9vdXRfdXNlcnMiOnRydWUsImZlYXR1cmVfcHJvZ3JhbV9yZXNvdXJjZXMiOnRydWUsImZlYXR1cmVfb2F1dGhfcmlzY19zaHV0b2ZmIjp0cnVlLCJmZWF0dXJlX3VzZWRfaW4iOnRydWUsImZlYXR1cmVfcGVlcl9hc3NpZ25tZW50Ijp0cnVlLCJncm91cF9zdWFkbWlucyI6ZmFsc2UsImdyb3VwX25vbl9zdWFkbWlucyI6dHJ1ZSwiZ3JvdXBfYWRtaW5zIjpmYWxzZSwiZ3JvdXBfdHJhaW5lcnMiOmZhbHNlLCJncm91cF9jb29yZGluYXRvcnMiOmZhbHNlLCJncm91cF9jcmVhdG9ycyI6ZmFsc2UsImdyb3VwX3N0dWRlbnRzIjp0cnVlLCJncm91cF9ub25fb3JnYW5pemF0aW9uIjp0cnVlLCJncm91cF9ub25fcHJvZ3JhbSI6dHJ1ZX0='));
+  gtag('set', 'user_properties', properties);
+</script>
+<script src="./sign_files/webcomponents-loader-8583b47b01e40e6ea7bf1ad443a20b7e79bbdd5eafac009806a228c91a97282c.js.download"></script>
+<script src="./sign_files/vendor-613520545532a2795a401a8168ca8b698b9ee765a66f5ad9ead806b5c32eabe8.js.download"></script>
+<script src="./sign_files/application-4067ac8cb5ba028c98feeb5325239c13eeac9651cf9c58da991c200b3f212c14.js.download"></script>
+<script src="./sign_files/hallofmirrors-afbc6f4d1914ab897958ffbcf5a79eeb9551aa4cd32fc55ccc4596af39c08749.js.download"></script><script async="" src="./sign_files/lazy.min.js.download"></script>
+<custom-style>
+  <style is="custom-style">[hidden] {
+  display: none !important;
+}
+
+</style>
+</custom-style>
+<custom-style>
+  <style is="custom-style">html {
+  --layout_-_display:  flex;;
+
+      --layout-inline_-_display:  inline-flex;;
+
+      --layout-horizontal_-_display:  var(--layout_-_display); --layout-horizontal_-_-ms-flex-direction:  row; --layout-horizontal_-_-webkit-flex-direction:  row; --layout-horizontal_-_flex-direction:  row;;
+
+      --layout-horizontal-reverse_-_display:  var(--layout_-_display); --layout-horizontal-reverse_-_-ms-flex-direction:  row-reverse; --layout-horizontal-reverse_-_-webkit-flex-direction:  row-reverse; --layout-horizontal-reverse_-_flex-direction:  row-reverse;;
+
+      --layout-vertical_-_display:  var(--layout_-_display); --layout-vertical_-_-ms-flex-direction:  column; --layout-vertical_-_-webkit-flex-direction:  column; --layout-vertical_-_flex-direction:  column;;
+
+      --layout-vertical-reverse_-_display:  var(--layout_-_display); --layout-vertical-reverse_-_-ms-flex-direction:  column-reverse; --layout-vertical-reverse_-_-webkit-flex-direction:  column-reverse; --layout-vertical-reverse_-_flex-direction:  column-reverse;;
+
+      --layout-wrap_-_-ms-flex-wrap:  wrap; --layout-wrap_-_-webkit-flex-wrap:  wrap; --layout-wrap_-_flex-wrap:  wrap;;
+
+      --layout-wrap-reverse_-_-ms-flex-wrap:  wrap-reverse; --layout-wrap-reverse_-_-webkit-flex-wrap:  wrap-reverse; --layout-wrap-reverse_-_flex-wrap:  wrap-reverse;;
+
+      --layout-flex-auto_-_-ms-flex:  1 1 auto; --layout-flex-auto_-_-webkit-flex:  1 1 auto; --layout-flex-auto_-_flex:  1 1 auto;;
+
+      --layout-flex-none_-_-ms-flex:  none; --layout-flex-none_-_-webkit-flex:  none; --layout-flex-none_-_flex:  none;;
+
+      --layout-flex_-_-ms-flex:  1 1 0.000000001px; --layout-flex_-_-webkit-flex:  1; --layout-flex_-_flex:  1; --layout-flex_-_-webkit-flex-basis:  0.000000001px; --layout-flex_-_flex-basis:  0.000000001px;;
+
+      --layout-flex-2_-_-ms-flex:  2; --layout-flex-2_-_-webkit-flex:  2; --layout-flex-2_-_flex:  2;;
+
+      --layout-flex-3_-_-ms-flex:  3; --layout-flex-3_-_-webkit-flex:  3; --layout-flex-3_-_flex:  3;;
+
+      --layout-flex-4_-_-ms-flex:  4; --layout-flex-4_-_-webkit-flex:  4; --layout-flex-4_-_flex:  4;;
+
+      --layout-flex-5_-_-ms-flex:  5; --layout-flex-5_-_-webkit-flex:  5; --layout-flex-5_-_flex:  5;;
+
+      --layout-flex-6_-_-ms-flex:  6; --layout-flex-6_-_-webkit-flex:  6; --layout-flex-6_-_flex:  6;;
+
+      --layout-flex-7_-_-ms-flex:  7; --layout-flex-7_-_-webkit-flex:  7; --layout-flex-7_-_flex:  7;;
+
+      --layout-flex-8_-_-ms-flex:  8; --layout-flex-8_-_-webkit-flex:  8; --layout-flex-8_-_flex:  8;;
+
+      --layout-flex-9_-_-ms-flex:  9; --layout-flex-9_-_-webkit-flex:  9; --layout-flex-9_-_flex:  9;;
+
+      --layout-flex-10_-_-ms-flex:  10; --layout-flex-10_-_-webkit-flex:  10; --layout-flex-10_-_flex:  10;;
+
+      --layout-flex-11_-_-ms-flex:  11; --layout-flex-11_-_-webkit-flex:  11; --layout-flex-11_-_flex:  11;;
+
+      --layout-flex-12_-_-ms-flex:  12; --layout-flex-12_-_-webkit-flex:  12; --layout-flex-12_-_flex:  12;;
+
+      
+
+      --layout-start_-_-ms-flex-align:  start; --layout-start_-_-webkit-align-items:  flex-start; --layout-start_-_align-items:  flex-start;;
+
+      --layout-center_-_-ms-flex-align:  center; --layout-center_-_-webkit-align-items:  center; --layout-center_-_align-items:  center;;
+
+      --layout-end_-_-ms-flex-align:  end; --layout-end_-_-webkit-align-items:  flex-end; --layout-end_-_align-items:  flex-end;;
+
+      --layout-baseline_-_-ms-flex-align:  baseline; --layout-baseline_-_-webkit-align-items:  baseline; --layout-baseline_-_align-items:  baseline;;
+
+      
+
+      --layout-start-justified_-_-ms-flex-pack:  start; --layout-start-justified_-_-webkit-justify-content:  flex-start; --layout-start-justified_-_justify-content:  flex-start;;
+
+      --layout-center-justified_-_-ms-flex-pack:  center; --layout-center-justified_-_-webkit-justify-content:  center; --layout-center-justified_-_justify-content:  center;;
+
+      --layout-end-justified_-_-ms-flex-pack:  end; --layout-end-justified_-_-webkit-justify-content:  flex-end; --layout-end-justified_-_justify-content:  flex-end;;
+
+      --layout-around-justified_-_-ms-flex-pack:  distribute; --layout-around-justified_-_-webkit-justify-content:  space-around; --layout-around-justified_-_justify-content:  space-around;;
+
+      --layout-justified_-_-ms-flex-pack:  justify; --layout-justified_-_-webkit-justify-content:  space-between; --layout-justified_-_justify-content:  space-between;;
+
+      --layout-center-center_-_-ms-flex-align:  var(--layout-center_-_-ms-flex-align); --layout-center-center_-_-webkit-align-items:  var(--layout-center_-_-webkit-align-items); --layout-center-center_-_align-items:  var(--layout-center_-_align-items); --layout-center-center_-_-ms-flex-pack:  var(--layout-center-justified_-_-ms-flex-pack); --layout-center-center_-_-webkit-justify-content:  var(--layout-center-justified_-_-webkit-justify-content); --layout-center-center_-_justify-content:  var(--layout-center-justified_-_justify-content);;
+
+      
+
+      --layout-self-start_-_-ms-align-self:  flex-start; --layout-self-start_-_-webkit-align-self:  flex-start; --layout-self-start_-_align-self:  flex-start;;
+
+      --layout-self-center_-_-ms-align-self:  center; --layout-self-center_-_-webkit-align-self:  center; --layout-self-center_-_align-self:  center;;
+
+      --layout-self-end_-_-ms-align-self:  flex-end; --layout-self-end_-_-webkit-align-self:  flex-end; --layout-self-end_-_align-self:  flex-end;;
+
+      --layout-self-stretch_-_-ms-align-self:  stretch; --layout-self-stretch_-_-webkit-align-self:  stretch; --layout-self-stretch_-_align-self:  stretch;;
+
+      --layout-self-baseline_-_-ms-align-self:  baseline; --layout-self-baseline_-_-webkit-align-self:  baseline; --layout-self-baseline_-_align-self:  baseline;;
+
+      
+
+      --layout-start-aligned_-_-ms-flex-line-pack:  start; --layout-start-aligned_-_-ms-align-content:  flex-start; --layout-start-aligned_-_-webkit-align-content:  flex-start; --layout-start-aligned_-_align-content:  flex-start;;
+
+      --layout-end-aligned_-_-ms-flex-line-pack:  end; --layout-end-aligned_-_-ms-align-content:  flex-end; --layout-end-aligned_-_-webkit-align-content:  flex-end; --layout-end-aligned_-_align-content:  flex-end;;
+
+      --layout-center-aligned_-_-ms-flex-line-pack:  center; --layout-center-aligned_-_-ms-align-content:  center; --layout-center-aligned_-_-webkit-align-content:  center; --layout-center-aligned_-_align-content:  center;;
+
+      --layout-between-aligned_-_-ms-flex-line-pack:  justify; --layout-between-aligned_-_-ms-align-content:  space-between; --layout-between-aligned_-_-webkit-align-content:  space-between; --layout-between-aligned_-_align-content:  space-between;;
+
+      --layout-around-aligned_-_-ms-flex-line-pack:  distribute; --layout-around-aligned_-_-ms-align-content:  space-around; --layout-around-aligned_-_-webkit-align-content:  space-around; --layout-around-aligned_-_align-content:  space-around;;
+
+      
+
+      --layout-block_-_display:  block;;
+
+      --layout-invisible_-_visibility:  hidden !important;;
+
+      --layout-relative_-_position:  relative;;
+
+      --layout-fit_-_position:  absolute; --layout-fit_-_top:  0; --layout-fit_-_right:  0; --layout-fit_-_bottom:  0; --layout-fit_-_left:  0;;
+
+      --layout-scroll_-_-webkit-overflow-scrolling:  touch; --layout-scroll_-_overflow:  auto;;
+
+      --layout-fullbleed_-_margin:  0; --layout-fullbleed_-_height:  100vh;;
+
+      
+
+      --layout-fixed-top_-_position:  fixed; --layout-fixed-top_-_top:  0; --layout-fixed-top_-_left:  0; --layout-fixed-top_-_right:  0;;
+
+      --layout-fixed-right_-_position:  fixed; --layout-fixed-right_-_top:  0; --layout-fixed-right_-_right:  0; --layout-fixed-right_-_bottom:  0;;
+
+      --layout-fixed-bottom_-_position:  fixed; --layout-fixed-bottom_-_right:  0; --layout-fixed-bottom_-_bottom:  0; --layout-fixed-bottom_-_left:  0;;
+
+      --layout-fixed-left_-_position:  fixed; --layout-fixed-left_-_top:  0; --layout-fixed-left_-_bottom:  0; --layout-fixed-left_-_left:  0;;
+}
+
+</style>
+</custom-style><style>[hidden] { display: none !important; }</style><custom-style>
+  <style is="custom-style">html {
+  --google-red-100: #f4c7c3;
+      --google-red-300: #e67c73;
+      --google-red-500: #db4437;
+      --google-red-700: #c53929;
+
+      --google-blue-100: #c6dafc;
+      --google-blue-300: #7baaf7;
+      --google-blue-500: #4285f4;
+      --google-blue-700: #3367d6;
+
+      --google-green-100: #b7e1cd;
+      --google-green-300: #57bb8a;
+      --google-green-500: #0f9d58;
+      --google-green-700: #0b8043;
+
+      --google-yellow-100: #fce8b2;
+      --google-yellow-300: #f7cb4d;
+      --google-yellow-500: #f4b400;
+      --google-yellow-700: #f09300;
+
+      --google-grey-100: #f5f5f5;
+      --google-grey-300: #e0e0e0;
+      --google-grey-500: #9e9e9e;
+      --google-grey-700: #616161;
+
+      
+
+      --paper-red-50: #ffebee;
+      --paper-red-100: #ffcdd2;
+      --paper-red-200: #ef9a9a;
+      --paper-red-300: #e57373;
+      --paper-red-400: #ef5350;
+      --paper-red-500: #f44336;
+      --paper-red-600: #e53935;
+      --paper-red-700: #d32f2f;
+      --paper-red-800: #c62828;
+      --paper-red-900: #b71c1c;
+      --paper-red-a100: #ff8a80;
+      --paper-red-a200: #ff5252;
+      --paper-red-a400: #ff1744;
+      --paper-red-a700: #d50000;
+
+      --paper-pink-50: #fce4ec;
+      --paper-pink-100: #f8bbd0;
+      --paper-pink-200: #f48fb1;
+      --paper-pink-300: #f06292;
+      --paper-pink-400: #ec407a;
+      --paper-pink-500: #e91e63;
+      --paper-pink-600: #d81b60;
+      --paper-pink-700: #c2185b;
+      --paper-pink-800: #ad1457;
+      --paper-pink-900: #880e4f;
+      --paper-pink-a100: #ff80ab;
+      --paper-pink-a200: #ff4081;
+      --paper-pink-a400: #f50057;
+      --paper-pink-a700: #c51162;
+
+      --paper-purple-50: #f3e5f5;
+      --paper-purple-100: #e1bee7;
+      --paper-purple-200: #ce93d8;
+      --paper-purple-300: #ba68c8;
+      --paper-purple-400: #ab47bc;
+      --paper-purple-500: #9c27b0;
+      --paper-purple-600: #8e24aa;
+      --paper-purple-700: #7b1fa2;
+      --paper-purple-800: #6a1b9a;
+      --paper-purple-900: #4a148c;
+      --paper-purple-a100: #ea80fc;
+      --paper-purple-a200: #e040fb;
+      --paper-purple-a400: #d500f9;
+      --paper-purple-a700: #aa00ff;
+
+      --paper-deep-purple-50: #ede7f6;
+      --paper-deep-purple-100: #d1c4e9;
+      --paper-deep-purple-200: #b39ddb;
+      --paper-deep-purple-300: #9575cd;
+      --paper-deep-purple-400: #7e57c2;
+      --paper-deep-purple-500: #673ab7;
+      --paper-deep-purple-600: #5e35b1;
+      --paper-deep-purple-700: #512da8;
+      --paper-deep-purple-800: #4527a0;
+      --paper-deep-purple-900: #311b92;
+      --paper-deep-purple-a100: #b388ff;
+      --paper-deep-purple-a200: #7c4dff;
+      --paper-deep-purple-a400: #651fff;
+      --paper-deep-purple-a700: #6200ea;
+
+      --paper-indigo-50: #e8eaf6;
+      --paper-indigo-100: #c5cae9;
+      --paper-indigo-200: #9fa8da;
+      --paper-indigo-300: #7986cb;
+      --paper-indigo-400: #5c6bc0;
+      --paper-indigo-500: #3f51b5;
+      --paper-indigo-600: #3949ab;
+      --paper-indigo-700: #303f9f;
+      --paper-indigo-800: #283593;
+      --paper-indigo-900: #1a237e;
+      --paper-indigo-a100: #8c9eff;
+      --paper-indigo-a200: #536dfe;
+      --paper-indigo-a400: #3d5afe;
+      --paper-indigo-a700: #304ffe;
+
+      --paper-blue-50: #e3f2fd;
+      --paper-blue-100: #bbdefb;
+      --paper-blue-200: #90caf9;
+      --paper-blue-300: #64b5f6;
+      --paper-blue-400: #42a5f5;
+      --paper-blue-500: #2196f3;
+      --paper-blue-600: #1e88e5;
+      --paper-blue-700: #1976d2;
+      --paper-blue-800: #1565c0;
+      --paper-blue-900: #0d47a1;
+      --paper-blue-a100: #82b1ff;
+      --paper-blue-a200: #448aff;
+      --paper-blue-a400: #2979ff;
+      --paper-blue-a700: #2962ff;
+
+      --paper-light-blue-50: #e1f5fe;
+      --paper-light-blue-100: #b3e5fc;
+      --paper-light-blue-200: #81d4fa;
+      --paper-light-blue-300: #4fc3f7;
+      --paper-light-blue-400: #29b6f6;
+      --paper-light-blue-500: #03a9f4;
+      --paper-light-blue-600: #039be5;
+      --paper-light-blue-700: #0288d1;
+      --paper-light-blue-800: #0277bd;
+      --paper-light-blue-900: #01579b;
+      --paper-light-blue-a100: #80d8ff;
+      --paper-light-blue-a200: #40c4ff;
+      --paper-light-blue-a400: #00b0ff;
+      --paper-light-blue-a700: #0091ea;
+
+      --paper-cyan-50: #e0f7fa;
+      --paper-cyan-100: #b2ebf2;
+      --paper-cyan-200: #80deea;
+      --paper-cyan-300: #4dd0e1;
+      --paper-cyan-400: #26c6da;
+      --paper-cyan-500: #00bcd4;
+      --paper-cyan-600: #00acc1;
+      --paper-cyan-700: #0097a7;
+      --paper-cyan-800: #00838f;
+      --paper-cyan-900: #006064;
+      --paper-cyan-a100: #84ffff;
+      --paper-cyan-a200: #18ffff;
+      --paper-cyan-a400: #00e5ff;
+      --paper-cyan-a700: #00b8d4;
+
+      --paper-teal-50: #e0f2f1;
+      --paper-teal-100: #b2dfdb;
+      --paper-teal-200: #80cbc4;
+      --paper-teal-300: #4db6ac;
+      --paper-teal-400: #26a69a;
+      --paper-teal-500: #009688;
+      --paper-teal-600: #00897b;
+      --paper-teal-700: #00796b;
+      --paper-teal-800: #00695c;
+      --paper-teal-900: #004d40;
+      --paper-teal-a100: #a7ffeb;
+      --paper-teal-a200: #64ffda;
+      --paper-teal-a400: #1de9b6;
+      --paper-teal-a700: #00bfa5;
+
+      --paper-green-50: #e8f5e9;
+      --paper-green-100: #c8e6c9;
+      --paper-green-200: #a5d6a7;
+      --paper-green-300: #81c784;
+      --paper-green-400: #66bb6a;
+      --paper-green-500: #4caf50;
+      --paper-green-600: #43a047;
+      --paper-green-700: #388e3c;
+      --paper-green-800: #2e7d32;
+      --paper-green-900: #1b5e20;
+      --paper-green-a100: #b9f6ca;
+      --paper-green-a200: #69f0ae;
+      --paper-green-a400: #00e676;
+      --paper-green-a700: #00c853;
+
+      --paper-light-green-50: #f1f8e9;
+      --paper-light-green-100: #dcedc8;
+      --paper-light-green-200: #c5e1a5;
+      --paper-light-green-300: #aed581;
+      --paper-light-green-400: #9ccc65;
+      --paper-light-green-500: #8bc34a;
+      --paper-light-green-600: #7cb342;
+      --paper-light-green-700: #689f38;
+      --paper-light-green-800: #558b2f;
+      --paper-light-green-900: #33691e;
+      --paper-light-green-a100: #ccff90;
+      --paper-light-green-a200: #b2ff59;
+      --paper-light-green-a400: #76ff03;
+      --paper-light-green-a700: #64dd17;
+
+      --paper-lime-50: #f9fbe7;
+      --paper-lime-100: #f0f4c3;
+      --paper-lime-200: #e6ee9c;
+      --paper-lime-300: #dce775;
+      --paper-lime-400: #d4e157;
+      --paper-lime-500: #cddc39;
+      --paper-lime-600: #c0ca33;
+      --paper-lime-700: #afb42b;
+      --paper-lime-800: #9e9d24;
+      --paper-lime-900: #827717;
+      --paper-lime-a100: #f4ff81;
+      --paper-lime-a200: #eeff41;
+      --paper-lime-a400: #c6ff00;
+      --paper-lime-a700: #aeea00;
+
+      --paper-yellow-50: #fffde7;
+      --paper-yellow-100: #fff9c4;
+      --paper-yellow-200: #fff59d;
+      --paper-yellow-300: #fff176;
+      --paper-yellow-400: #ffee58;
+      --paper-yellow-500: #ffeb3b;
+      --paper-yellow-600: #fdd835;
+      --paper-yellow-700: #fbc02d;
+      --paper-yellow-800: #f9a825;
+      --paper-yellow-900: #f57f17;
+      --paper-yellow-a100: #ffff8d;
+      --paper-yellow-a200: #ffff00;
+      --paper-yellow-a400: #ffea00;
+      --paper-yellow-a700: #ffd600;
+
+      --paper-amber-50: #fff8e1;
+      --paper-amber-100: #ffecb3;
+      --paper-amber-200: #ffe082;
+      --paper-amber-300: #ffd54f;
+      --paper-amber-400: #ffca28;
+      --paper-amber-500: #ffc107;
+      --paper-amber-600: #ffb300;
+      --paper-amber-700: #ffa000;
+      --paper-amber-800: #ff8f00;
+      --paper-amber-900: #ff6f00;
+      --paper-amber-a100: #ffe57f;
+      --paper-amber-a200: #ffd740;
+      --paper-amber-a400: #ffc400;
+      --paper-amber-a700: #ffab00;
+
+      --paper-orange-50: #fff3e0;
+      --paper-orange-100: #ffe0b2;
+      --paper-orange-200: #ffcc80;
+      --paper-orange-300: #ffb74d;
+      --paper-orange-400: #ffa726;
+      --paper-orange-500: #ff9800;
+      --paper-orange-600: #fb8c00;
+      --paper-orange-700: #f57c00;
+      --paper-orange-800: #ef6c00;
+      --paper-orange-900: #e65100;
+      --paper-orange-a100: #ffd180;
+      --paper-orange-a200: #ffab40;
+      --paper-orange-a400: #ff9100;
+      --paper-orange-a700: #ff6500;
+
+      --paper-deep-orange-50: #fbe9e7;
+      --paper-deep-orange-100: #ffccbc;
+      --paper-deep-orange-200: #ffab91;
+      --paper-deep-orange-300: #ff8a65;
+      --paper-deep-orange-400: #ff7043;
+      --paper-deep-orange-500: #ff5722;
+      --paper-deep-orange-600: #f4511e;
+      --paper-deep-orange-700: #e64a19;
+      --paper-deep-orange-800: #d84315;
+      --paper-deep-orange-900: #bf360c;
+      --paper-deep-orange-a100: #ff9e80;
+      --paper-deep-orange-a200: #ff6e40;
+      --paper-deep-orange-a400: #ff3d00;
+      --paper-deep-orange-a700: #dd2c00;
+
+      --paper-brown-50: #efebe9;
+      --paper-brown-100: #d7ccc8;
+      --paper-brown-200: #bcaaa4;
+      --paper-brown-300: #a1887f;
+      --paper-brown-400: #8d6e63;
+      --paper-brown-500: #795548;
+      --paper-brown-600: #6d4c41;
+      --paper-brown-700: #5d4037;
+      --paper-brown-800: #4e342e;
+      --paper-brown-900: #3e2723;
+
+      --paper-grey-50: #fafafa;
+      --paper-grey-100: #f5f5f5;
+      --paper-grey-200: #eeeeee;
+      --paper-grey-300: #e0e0e0;
+      --paper-grey-400: #bdbdbd;
+      --paper-grey-500: #9e9e9e;
+      --paper-grey-600: #757575;
+      --paper-grey-700: #616161;
+      --paper-grey-800: #424242;
+      --paper-grey-900: #212121;
+
+      --paper-blue-grey-50: #eceff1;
+      --paper-blue-grey-100: #cfd8dc;
+      --paper-blue-grey-200: #b0bec5;
+      --paper-blue-grey-300: #90a4ae;
+      --paper-blue-grey-400: #78909c;
+      --paper-blue-grey-500: #607d8b;
+      --paper-blue-grey-600: #546e7a;
+      --paper-blue-grey-700: #455a64;
+      --paper-blue-grey-800: #37474f;
+      --paper-blue-grey-900: #263238;
+
+      
+      --dark-divider-opacity: 0.12;
+      --dark-disabled-opacity: 0.38; 
+      --dark-secondary-opacity: 0.54;
+      --dark-primary-opacity: 0.87;
+
+      
+      --light-divider-opacity: 0.12;
+      --light-disabled-opacity: 0.3; 
+      --light-secondary-opacity: 0.7;
+      --light-primary-opacity: 1.0;
+}
+
+</style>
+</custom-style><custom-style>
+  <style is="custom-style">html {
+  --primary-text-color: var(--light-theme-text-color);
+      --primary-background-color: var(--light-theme-background-color);
+      --secondary-text-color: var(--light-theme-secondary-color);
+      --disabled-text-color: var(--light-theme-disabled-color);
+      --divider-color: var(--light-theme-divider-color);
+      --error-color: var(--paper-deep-orange-a700);
+
+      
+      --primary-color: var(--paper-indigo-500);
+      --light-primary-color: var(--paper-indigo-100);
+      --dark-primary-color: var(--paper-indigo-700);
+
+      --accent-color: var(--paper-pink-a200);
+      --light-accent-color: var(--paper-pink-a100);
+      --dark-accent-color: var(--paper-pink-a400);
+
+
+      
+      --light-theme-background-color: #ffffff;
+      --light-theme-base-color: #000000;
+      --light-theme-text-color: var(--paper-grey-900);
+      --light-theme-secondary-color: #737373;  
+      --light-theme-disabled-color: #9b9b9b;  
+      --light-theme-divider-color: #dbdbdb;
+
+      
+      --dark-theme-background-color: var(--paper-grey-900);
+      --dark-theme-base-color: #ffffff;
+      --dark-theme-text-color: #ffffff;
+      --dark-theme-secondary-color: #bcbcbc;  
+      --dark-theme-disabled-color: #646464;  
+      --dark-theme-divider-color: #3c3c3c;
+
+      
+      --text-primary-color: var(--dark-theme-text-color);
+      --default-primary-color: var(--primary-color);
+}
+
+</style>
+</custom-style><script src="./sign_files/loader.js.download"></script>
+<!--[if lt IE 9]>  <![endif]-->
+<script src="./sign_files/html5.js.download" type="text/javascript"></script>
+<!--[endif]>  <![endif]-->
+<script id="ze-snippet" src="./sign_files/snippet.js.download"></script>
+
+
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="zXw1tSMyzE8rA2GQwMr+XE1MZ7/IZ29B7hYVMlgUuDzsH+UQxFW4ds8KvT8xWfQhBKcDgLbMNL5gjx9IjIs4EQ==">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="1rRsY0INj8RvwB5EF5pwdxt2A2P9aDgAlsICaJ0d5w0" name="google-site-verification">
+<meta content="#3681E4" property="msapplication-TileColor">
+<meta content="/favicon-144.png" property="msapplication-TileImage">
+<meta content="[{&quot;id&quot;:&quot;recaptcha_experiment&quot;,&quot;optimize_id&quot;:&quot;dpViOcLkT3qS4TvL2mRojA&quot;,&quot;title&quot;:&quot;No Recaptcha shown for trusted users&quot;,&quot;variant_index&quot;:1,&quot;variant&quot;:&quot;no_recaptcha&quot;}]" name="active-experiments">
+<meta content="{&quot;userId&quot;:12517500,&quot;experimentIds&quot;:[&quot;teams&quot;,&quot;community_forum&quot;,&quot;alexandria_show_bundle_errors&quot;,&quot;program_learning_assignment&quot;,&quot;search_updates&quot;,&quot;barker&quot;,&quot;program_groups&quot;,&quot;show_annual_purchase_now&quot;,&quot;programs&quot;,&quot;course_upgrade&quot;,&quot;canonical_domain_redirect&quot;,&quot;enforce_codebuild_verdicts&quot;,&quot;chat_off_for_signed_out_users&quot;,&quot;program_resources&quot;,&quot;oauth_risc_shutoff&quot;,&quot;used_in&quot;,&quot;peer_assignment&quot;]}" name="help-api-product-data">
+<meta content="{&quot;groupIds&quot;:[&quot;non_suadmins&quot;,&quot;students&quot;,&quot;non_organization&quot;,&quot;non_program&quot;]}" name="help-api-custom-data">
+<meta content="Use the Cloud Vision, Natural Language, and Translation APIs to capture text strings from images, recognize characters, and analyze and translate the text strings into other languages." name="description">
+<meta content="Qwiklabs" name="author">
+<meta content="Extract, Analyze, and Translate Text from Images with the Cloud ML APIs | Google Cloud Skills Boost" property="og:title">
+<meta content="website" property="og:type">
+<meta content="/favicon-144.png" property="og:image">
+<meta content="Qwiklabs" property="og:site_name">
+<meta content="Use the Cloud Vision, Natural Language, and Translation APIs to capture text strings from images, recognize characters, and analyze and translate the text strings into other languages." property="og:description">
+<meta content="/qwiklabs_logo_900x887.png" property="og:logo" size="900x887">
+<meta content="/qwiklabs_logo_994x187.png" property="og:logo" size="994x187">
+
+
+<meta property="og:url" content="https://www.cloudskillsboost.google/games/4422/labs/28604"><link href="https://www.cloudskillsboost.google/games/4422/labs/28604" rel="canonical">
+<link color="#3681E4" href="https://www.cloudskillsboost.google/favicon-svg.svg" rel="mask-icon">
+<link href="https://www.cloudskillsboost.google/favicon-180.png" rel="apple-touch-icon-precomposed">
+<link href="https://cdn.qwiklabs.com/X46FrQX4iLxHW5MxL8jICvgZM0evMEKscCeQO%2BazGdo%3D" rel="shortcut icon" type="image/x-icon">
+
+
+<link rel="stylesheet" href="./sign_files/css" media="screen">
+
+<link rel="stylesheet" href="./sign_files/application-f06766d8a66868b44e1698330db89de0df7d0086eb11037f587d06ac3bf6bc2e.css" media="all">
+
+
+<style>
+  :root {
+    --primary-text-on-surface-color: #1a73e8;
+    --primary-text-on-surface-color-dark: #1568d6;
+    --primary-text-on-surface-color-darker: #135ec1;
+    --primary-text-on-surface-color-darkest: #1154ac;
+    --primary-surface-color: #1a73e8;
+    --primary-surface-color-rgb: 26,115,232;
+    --primary-surface-color-light: #d1e3fa;
+    --primary-surface-color-lightest: #e8f1fd;
+    --text-on-primary-color: #ffffff;
+    --accent-text-on-surface-color: #f29900;
+    --accent-surface-color: #f9ab00;
+    --accent-surface-color-rgb: 249,171,0;
+    --accent-surface-color-light: #ffefcc;
+    --text-on-accent-color: #202124;
+  }
+</style>
+
+<style>
+  :root {
+    --navbar-height: 112px;
+  }
+</style>
+
+
+
+<script type="text/javascript" charset="UTF-8" src="./sign_files/client.js.download" gapi_processed="true"></script><script type="text/javascript" charset="UTF-8" src="./sign_files/api.js.download" gapi_processed="true"></script></head>
+<body class="lab-show l-full no-nav application-new games-labs games-labs-show lab-show l-full no-nav ">
+<div class="header-container light-theme">
+<div class="header">
+<ql-icon-button class="js-nav-toggle header__nav-panel-button l-mrm"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-busy="false" aria-label="menu">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>menu</ql-icon-button>
+<div class="header__title">
+<ql-icon-button label="Back" href="/games/4422" id="5ab20cefa9023410" target="_self" tip="Back"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422" target="_self" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Back">
+        <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template>arrow_back</ql-icon-button>
+
+<h1 class="headline-5">
+Extract, Analyze, and Translate Text from Images with the Cloud ML APIs
+</h1>
+</div>
+<div class="header__actions">
+<ql-icon-button id="control-panel-target" style="display: none;"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-busy="false" aria-label="dashboard" aria-haspopup="true" aria-controls="control-panel-menu">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+dashboard
+</ql-icon-button>
+<ql-menu for="control-panel-target" id="control-panel-menu" tabindex="-1" aria-hidden="true" style="left: -1000px; top: -1000px; opacity: 0; visibility: hidden;" role="menu" aria-labelledby="control-panel-target"><template shadowrootmode="open"><!---->
+      <ql-card elevation="3"><template shadowrootmode="open"><!---->
+      <div class=" card ">
+        <slot></slot>
+      </div>
+    </template>
+        <slot></slot>
+      </ql-card>
+    </template></ql-menu>
+
+<ql-icon-button class="mobile-hide" icon="help_outline" id="help-menu-button" label="Open help menu" tip="Help"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Open help menu" aria-busy="false" aria-haspopup="true" aria-controls="help-menu">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$-->help_outline
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template></ql-icon-button>
+<ql-menu for="help-menu-button" id="help-menu" tabindex="-1" aria-hidden="true" style="left: -1000px; top: -1000px; opacity: 0; visibility: hidden;" role="menu" aria-labelledby="help-menu-button"><template shadowrootmode="open"><!---->
+      <ql-card elevation="3"><template shadowrootmode="open"><!---->
+      <div class=" card ">
+        <slot></slot>
+      </div>
+    </template>
+        <slot></slot>
+      </ql-card>
+    </template>
+<ql-menu-item data-analytics-action="opened_help" data-analytics-label="lab" label="Help Center" onclick="hallofmirrors.helpService.startHelp({&quot;productData&quot;:{&quot;userId&quot;:12517500},&quot;context&quot;:&quot;lab&quot;})"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" menu-item " role="menuitem" aria-label="Help Center" aria-busy="false">
+          <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->Help Center<!--?-->
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item href="mailto:support@qwiklabs.com" label="Email support"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="mailto:support@qwiklabs.com" target="_self" role="menuitem" class=" menu-item " aria-label="Email support">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->Email support<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item label="Chat support" onclick="ql.chat.open()"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" menu-item " role="menuitem" aria-label="Chat support" aria-busy="false">
+          <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->Chat support<!--?-->
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+</ql-menu>
+
+<ql-icon-button class="mobile-hide" icon="language" id="language" label="Select your language preference" tip="Language"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Select your language preference" aria-busy="false" aria-haspopup="true" aria-controls="">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$-->language
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template></ql-icon-button>
+<ql-menu for="language" tabindex="-1" aria-hidden="true" style="left: -1000px; top: -1000px; opacity: 0; visibility: hidden;" role="menu" aria-labelledby="language"><template shadowrootmode="open"><!---->
+      <ql-card elevation="3"><template shadowrootmode="open"><!---->
+      <div class=" card ">
+        <slot></slot>
+      </div>
+    </template>
+        <slot></slot>
+      </ql-card>
+    </template>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="ar" href="/games/4422/labs/28604?locale=ar" label="العربية‬‎" lang="ar"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=ar" target="_self" role="menuitem" class=" menu-item " aria-label="العربية‬‎">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->العربية‬‎<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="de" href="/games/4422/labs/28604?locale=de" label="Deutsch" lang="de"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=de" target="_self" role="menuitem" class=" menu-item " aria-label="Deutsch">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->Deutsch<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="en" href="/games/4422/labs/28604?locale=en" label="English" lang="en"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=en" target="_self" role="menuitem" class=" menu-item " aria-label="English">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->English<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="es" href="/games/4422/labs/28604?locale=es" label="español (Latinoamérica)" lang="es"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=es" target="_self" role="menuitem" class=" menu-item " aria-label="español (Latinoamérica)">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->español (Latinoamérica)<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="fr" href="/games/4422/labs/28604?locale=fr" label="français" lang="fr"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=fr" target="_self" role="menuitem" class=" menu-item " aria-label="français">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->français<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="fr_CA" href="/games/4422/labs/28604?locale=fr_CA" label="français (Canada)" lang="fr-CA"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=fr_CA" target="_self" role="menuitem" class=" menu-item " aria-label="français (Canada)">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->français (Canada)<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="he" href="/games/4422/labs/28604?locale=he" label="עברית" lang="he"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=he" target="_self" role="menuitem" class=" menu-item " aria-label="עברית">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->עברית<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="id" href="/games/4422/labs/28604?locale=id" label="bahasa Indonesia" lang="id"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=id" target="_self" role="menuitem" class=" menu-item " aria-label="bahasa Indonesia">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->bahasa Indonesia<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="it" href="/games/4422/labs/28604?locale=it" label="Italiano" lang="it"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=it" target="_self" role="menuitem" class=" menu-item " aria-label="Italiano">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->Italiano<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="ja" href="/games/4422/labs/28604?locale=ja" label="日本語" lang="ja"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=ja" target="_self" role="menuitem" class=" menu-item " aria-label="日本語">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->日本語<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="ko" href="/games/4422/labs/28604?locale=ko" label="한국어" lang="ko"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=ko" target="_self" role="menuitem" class=" menu-item " aria-label="한국어">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->한국어<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="pl" href="/games/4422/labs/28604?locale=pl" label="Polski" lang="pl"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=pl" target="_self" role="menuitem" class=" menu-item " aria-label="Polski">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->Polski<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="pt_BR" href="/games/4422/labs/28604?locale=pt_BR" label="português (Brasil)" lang="pt-BR"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=pt_BR" target="_self" role="menuitem" class=" menu-item " aria-label="português (Brasil)">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->português (Brasil)<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="pt_PT" href="/games/4422/labs/28604?locale=pt_PT" label="português (Portugal)" lang="pt-PT"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=pt_PT" target="_self" role="menuitem" class=" menu-item " aria-label="português (Portugal)">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->português (Portugal)<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="ru" href="/games/4422/labs/28604?locale=ru" label="русский" lang="ru"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=ru" target="_self" role="menuitem" class=" menu-item " aria-label="русский">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->русский<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="tr" href="/games/4422/labs/28604?locale=tr" label="Türkçe" lang="tr"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=tr" target="_self" role="menuitem" class=" menu-item " aria-label="Türkçe">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->Türkçe<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="uk" href="/games/4422/labs/28604?locale=uk" label="український" lang="uk"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=uk" target="_self" role="menuitem" class=" menu-item " aria-label="український">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->український<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="zh" href="/games/4422/labs/28604?locale=zh" label="简体中文" lang="zh"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=zh" target="_self" role="menuitem" class=" menu-item " aria-label="简体中文">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->简体中文<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+<ql-menu-item data-analytics-action="changed_locale" data-analytics-label="zh_TW" href="/games/4422/labs/28604?locale=zh_TW" label="繁體中文" lang="zh-TW"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/games/4422/labs/28604?locale=zh_TW" target="_self" role="menuitem" class=" menu-item " aria-label="繁體中文">
+        <!--?lit$89829076$--><!--?lit$89829076$--> <!--?lit$89829076$-->繁體中文<!--?-->
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-menu-item>
+</ql-menu>
+
+<ql-icon-button id="my_account" label="My account" tip="My account"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="My account" aria-busy="false" aria-haspopup="true" aria-controls="my_account_menu">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+<ql-avatar src="https://lh3.googleusercontent.com/a/AAcHTtd2Zfyc_5x4q9fMX-5P6N5M8keGc6lfN8eWyu_j3WGzeK4=s320-c"><template shadowrootmode="open"><!---->
+      <div class="avatar" style="background: url(&quot;https://lh3.googleusercontent.com/a/AAcHTtd2Zfyc_5x4q9fMX-5P6N5M8keGc6lfN8eWyu_j3WGzeK4=s320-c&quot;) center center / cover no-repeat; width: 40px; height: 40px;"></div>
+    </template></ql-avatar>
+</ql-icon-button>
+<ql-menu for="my_account" id="my_account_menu" style="max-height: 640px; left: -1000px; top: -1000px; opacity: 0; visibility: hidden;" tabindex="-1" aria-hidden="true" role="menu" aria-labelledby="my_account"><template shadowrootmode="open"><!---->
+      <ql-card elevation="3"><template shadowrootmode="open"><!---->
+      <div class=" card ">
+        <slot></slot>
+      </div>
+    </template>
+        <slot></slot>
+      </ql-card>
+    </template>
+<div class="my-account-menu">
+<ql-avatar class="l-mtl l-mbl" size="120" src="https://lh3.googleusercontent.com/a/AAcHTtd2Zfyc_5x4q9fMX-5P6N5M8keGc6lfN8eWyu_j3WGzeK4=s320-c"><template shadowrootmode="open"><!---->
+      <div class="avatar" style="background: url(&quot;https://lh3.googleusercontent.com/a/AAcHTtd2Zfyc_5x4q9fMX-5P6N5M8keGc6lfN8eWyu_j3WGzeK4=s320-c&quot;) center center / cover no-repeat; width: 120px; height: 120px;"></div>
+    </template></ql-avatar>
+<div class="my-account-menu__user-info l-mbl">
+<h4 class="ql-subhead-1">Kanishka Patel</h4>
+<p class="ql-body-2 text--light">kanishkapatel72@gmail.com</p>
+<p class="ql-body-2 text--light">
+</p>
+<a class="text--green ql-subhead-2" href="https://www.cloudskillsboost.google/my_account/payments"><ql-chip positive=""><template shadowrootmode="open"><!---->
+      <div class=" chip positive ">
+        <!--?lit$89829076$-->
+        <slot></slot>
+      </div>
+      <!--?lit$89829076$-->
+    </template>
+Monthly Subscription
+</ql-chip>
+</a></div>
+<div class="buttons l-mbl">
+<a class="button button--hairline l-mrm" id="profile" href="https://www.cloudskillsboost.google/public_profiles/771856c3-fdb1-4288-8960-e3882a45d6b4">Public Profile</a>
+<a class="button button--hairline" id="settings" href="https://www.cloudskillsboost.google/my_account/profile">Settings</a>
+</div>
+<hr>
+<ql-button data-analytics-action="clicked_sign_out" href="/users/sign_out" method="delete"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-button mdc-button--unelevated gm-button-fill gm-text-label-button ql-button default " aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$--><slot></slot>
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+Sign Out
+</ql-button>
+<div class="privacy l-mtl">
+<a target="_blank" class="ql-caption text--light" href="https://www.cloudskillsboost.google/privacy_policy">Privacy</a>
+<span class="ql-caption text--light l-mls l-mrs">·</span>
+<a class="ql-caption text--light" href="https://www.cloudskillsboost.google/terms_of_service">Terms</a>
+</div>
+</div>
+</ql-menu>
+
+</div>
+</div>
+</div>
+
+<nav class="nav-panel js-nav-panel">
+<div class="nav-panel__logo">
+<div class="custom-logo"><img alt="Google Cloud Skills Boost" height="24" aria-label="Google Cloud Skills Boost" src="./sign_files/PGyhmgS3zZncIEGywnx5UXsKwepRRFQ9BhAg_WHNrlQ="></div>
+</div>
+<nav class="ql-sidenav">
+<ql-sidenav-item href="/" icon="home" label="Paths"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/" target="_self" class=" sidenav-item " aria-label="Paths">
+        <!--?lit$89829076$-->
+      <ql-icon class="arrow"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$89829076$--></slot>
+      </i>
+      <!--?lit$89829076$--><!--?-->
+    </template></ql-icon>
+      <ql-icon class="icon"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$89829076$-->home</slot>
+      </i>
+      <!--?lit$89829076$--><!--?-->
+    </template></ql-icon>
+      <span class="label"><!--?lit$89829076$-->Paths</span>
+      <!--?lit$89829076$-->
+    
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-sidenav-item>
+
+<ql-sidenav-item href="/catalog" icon="school" label="Explore"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/catalog" target="_self" class=" sidenav-item " aria-label="Explore">
+        <!--?lit$89829076$-->
+      <ql-icon class="arrow"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$89829076$--></slot>
+      </i>
+      <!--?lit$89829076$--><!--?-->
+    </template></ql-icon>
+      <ql-icon class="icon"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$89829076$-->school</slot>
+      </i>
+      <!--?lit$89829076$--><!--?-->
+    </template></ql-icon>
+      <span class="label"><!--?lit$89829076$-->Explore</span>
+      <!--?lit$89829076$-->
+    
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-sidenav-item>
+
+<ql-sidenav-item href="/profile" icon="event_note" label="Profile"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://www.cloudskillsboost.google/profile" target="_self" class=" sidenav-item " aria-label="Profile">
+        <!--?lit$89829076$-->
+      <ql-icon class="arrow"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$89829076$--></slot>
+      </i>
+      <!--?lit$89829076$--><!--?-->
+    </template></ql-icon>
+      <ql-icon class="icon"><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$89829076$-->event_note</slot>
+      </i>
+      <!--?lit$89829076$--><!--?-->
+    </template></ql-icon>
+      <span class="label"><!--?lit$89829076$-->Profile</span>
+      <!--?lit$89829076$-->
+    
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template></ql-sidenav-item>
+
+</nav>
+
+</nav>
+<div class="nav-panel__overlay js-nav-toggle"></div>
+
+<main class="js-main" id="jump-content">
+<div class="l-main-wrapper" id="main-wrapper">
+
+
+
+
+
+<div class="lab-assessment__tab js-open-lab-assessment-panel">
+<button class="js-lab-assessment-total-score">30/100</button>
+</div>
+<div aria-labelledby="lab-assessment-checkpoint" class="lab-assessment__panel js-lab-assessment-panel" role="dialog">
+<div class="lab-assessment__panel__header">
+<h4 id="lab-assessment-checkpoint">Checkpoints</h4>
+<ql-icon-button class="js-close-lab-assessment-panel" icon="arrow_forward" label="Close dialog"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Close dialog" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$-->arrow_forward
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template></ql-icon-button>
+</div>
+<div class="lab-assessment__step">
+<p class="lab-assessment__step__title" id="lab-assessment-step-title">
+Create an API Key
+</p>
+<div class="lab-assessment__step__action">
+<ql-button class="js-show-run-step-button" description="Create an API Key" step_no="1"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$--><p id="button-description" hidden=""><!--?lit$89829076$-->Create an API Key</p>
+        <button type="button" class=" mdc-button mdc-button--unelevated gm-button-fill gm-text-label-button ql-button default " aria-describedby="button-description" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$--><slot></slot>
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+Check my progress
+</ql-button>
+<p class="lab-assessment__step__score">
+<span class="js-assessment-step-score-1">30</span>
+/ 30
+</p>
+</div>
+</div>
+
+<div class="lab-assessment__step">
+<p class="lab-assessment__step__title" id="lab-assessment-step-title">
+Upload image to a bucket
+</p>
+<div class="lab-assessment__step__action">
+<ql-button class="js-show-run-step-button" description="Upload image to a bucket" step_no="2"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$--><p id="button-description" hidden=""><!--?lit$89829076$-->Upload image to a bucket</p>
+        <button type="button" class=" mdc-button mdc-button--unelevated gm-button-fill gm-text-label-button ql-button default " aria-describedby="button-description" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$--><slot></slot>
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+Check my progress
+</ql-button>
+<p class="lab-assessment__step__score">
+<span class="js-assessment-step-score-2">0</span>
+/ 30
+</p>
+</div>
+</div>
+
+<div class="lab-assessment__step">
+<p class="lab-assessment__step__title" id="lab-assessment-step-title">
+Analyzing the image's text with the Natural Language API
+</p>
+<div class="lab-assessment__step__action">
+<ql-button class="js-show-run-step-button" description="Analyzing the image&#39;s text with the Natural Language API" step_no="3"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$--><p id="button-description" hidden=""><!--?lit$89829076$-->Analyzing the image's text with the Natural Language API</p>
+        <button type="button" class=" mdc-button mdc-button--unelevated gm-button-fill gm-text-label-button ql-button default " aria-describedby="button-description" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$--><slot></slot>
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+Check my progress
+</ql-button>
+<p class="lab-assessment__step__score">
+<span class="js-assessment-step-score-3">0</span>
+/ 40
+</p>
+</div>
+</div>
+
+</div>
+<ql-drawer-container class="js-lab-state" data-analytics-payload="{&quot;label&quot;:&quot;Extract, Analyze, and Translate Text from Images with the Cloud ML APIs&quot;,&quot;lab_name&quot;:&quot;Extract, Analyze, and Translate Text from Images with the Cloud ML APIs&quot;,&quot;classroom_name&quot;:null,&quot;deployment&quot;:&quot;google-run&quot;}" data-credits="9.0" data-focus-id="28604" data-lab-billing-limit="0.0" data-lab-duration="3000" data-lab-instance-id="75257380" data-parent="game" data-recaptcha-enabled="" id="lab-container"><template shadowrootmode="open"><!---->
+      <slot name="drawer"></slot>
+      <div class="content" style="margin-left: 0px; margin-right: 0px;">
+        <slot name="drawer-content"></slot>
+        <slot></slot>
+      </div>
+      <!--?lit$89829076$-->
+    </template>
+<ql-drawer id="terminal-drawer" slot="drawer" style="width: calc(100% - 480px); visibility: hidden;" tabindex="-1" aria-hidden="true" role="region" mode="side"><template shadowrootmode="open"><!----><slot></slot></template>
+<iframe allow="clipboard-read" class="terminal" id="embedded-resource" src="./sign_files/saved_resource.html"></iframe>
+</ql-drawer>
+<ql-drawer-content class="js-lab-wrapper" id="lab-content" slot="drawer-content"><template shadowrootmode="open"><!----><slot></slot></template>
+<ql-drawer-container id="lab-content-container"><template shadowrootmode="open"><!---->
+      <slot name="drawer"></slot>
+      <div class="content" style="margin-left: 320px; margin-right: 320px;">
+        <slot name="drawer-content"></slot>
+        <slot></slot>
+      </div>
+      <!--?lit$89829076$-->
+    </template>
+<ql-drawer id="control-panel-drawer" open="" slot="drawer" width="320" aria-hidden="false" role="region" mode="side" style="width: 320px; visibility: visible;"><template shadowrootmode="open"><!----><slot></slot></template>
+
+<ql-lab-control-panel class="ql-lab-control-panel__max-height control-panel js-lab-control-panel" connectionfiles="[]" labcontrolbutton="{&quot;disabled&quot;:false,&quot;pending&quot;:false,&quot;running&quot;:true}" labdetails="[{&quot;text&quot;:&quot;Open Google Cloud console&quot;,&quot;property&quot;:&quot;console_url&quot;,&quot;resource&quot;:&quot;project_0&quot;,&quot;href&quot;:&quot;https://accounts.google.com/AddSession?service=accountsettings\u0026sarp=1\u0026continue=https%3A%2F%2Fconsole.cloud.google.com%2Fhome%2Fdashboard%3Fproject%3Dqwiklabs-gcp-03-971f735aa3fd#Email=student-03-a79181d34597@qwiklabs.net&quot;,&quot;type&quot;:&quot;button&quot;},{&quot;label&quot;:&quot;Username&quot;,&quot;property&quot;:&quot;username&quot;,&quot;resource&quot;:&quot;user_0&quot;,&quot;value&quot;:&quot;student-03-a79181d34597@qwiklabs.net&quot;,&quot;type&quot;:&quot;credential&quot;},{&quot;label&quot;:&quot;Password&quot;,&quot;property&quot;:&quot;password&quot;,&quot;resource&quot;:&quot;user_0&quot;,&quot;value&quot;:&quot;lRFa12Nqtnji&quot;,&quot;type&quot;:&quot;credential&quot;},{&quot;label&quot;:&quot;Project ID&quot;,&quot;property&quot;:&quot;project_id&quot;,&quot;resource&quot;:&quot;project_0&quot;,&quot;value&quot;:&quot;qwiklabs-gcp-03-971f735aa3fd&quot;,&quot;type&quot;:&quot;credential&quot;}]" labtimer="{&quot;ticking&quot;:true,&quot;secondsRemaining&quot;:1478}" studentresources="[]"><template shadowrootmode="open"><!---->
+      <div class="control-panel-container control-panel-container--no-shrink">
+        <!--?lit$89829076$-->
+        <div class="control-panel-section control-panel-section--2up">
+          <!--?lit$89829076$-->
+      <ql-lab-control-button id="lab-control-button"><template shadowrootmode="open"><!---->
+      <ql-button><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class="mdc-button mdc-button--unelevated gm-button-fill gm-text-label-button ql-button negative" aria-expanded="true" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$--><slot></slot>
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        <!--?lit$89829076$-->End Lab
+      </ql-button>
+    </template>
+      </ql-lab-control-button>
+    
+          <!--?lit$89829076$-->
+      <ql-lab-timer id="lab-timer"><template shadowrootmode="open"><!---->
+        <ql-timer><template shadowrootmode="open"><!---->
+      <span aria-atomic="true" role="timer" class=" timer hhmmss " datetime="PT31M13S">
+      <time><!--?lit$89829076$-->00:31:13</time>
+    </span>
+    </template>
+        </ql-timer>
+      </template>
+      </ql-lab-timer>
+    
+        </div>
+      
+        <slot name="recaptcha"></slot>
+      </div>
+      <div class="control-panel-container">
+        <!--?lit$89829076$-->
+        <!--?lit$89829076$-->
+      <div class="control-panel-section">
+        <!--?lit$89829076$-->
+      <p class="do-not-deviate-warning">
+        <strong><!--?lit$89829076$-->Caution:</strong>
+        <!--?lit$89829076$-->When you are in the console, do not deviate from the lab instructions. Doing so may cause your account to be blocked.
+
+        <ql-help context="learn-more-account-blocked"><template shadowrootmode="open"><!---->
+      <slot>
+        <ql-icon-button><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Help" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$-->help
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        </ql-icon-button>
+      </slot>
+    </template>
+          <a href="https://www.cloudskillsboost.google/games/4422/labs/28604#" onclick="return false;" title="Learn more.">
+            <!--?lit$89829076$-->Learn more.
+          </a>
+        </ql-help>
+      </p>
+    
+        <!--?lit$89829076$--><!--?lit$89829076$--><!---->
+        <ql-button class="open-console-button" hairline="" target="_blank" alt="Open Google Cloud console"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <a href="https://accounts.google.com/AddSession?service=accountsettings&amp;sarp=1&amp;continue=https%3A%2F%2Fconsole.cloud.google.com%2Fhome%2Fdashboard%3Fproject%3Dqwiklabs-gcp-00-7428d2ede9c2#Email=student-03-a79181d34597@qwiklabs.net" target="_blank" class=" mdc-button mdc-button--outlined gm-button-hairline gm-hairline-text-label-button ql-button multiline default ">
+        <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$--><slot></slot>
+      </span>
+    
+    
+      </a>
+    
+      <!--?lit$89829076$-->
+    </template>
+          <!--?lit$89829076$-->Open Google Cloud console
+        </ql-button>
+      <!----><!---->
+      <ql-lab-connection-details class="connection-details"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$--><!---->
+      <ql-copyable-input placeholder="••••••••"><template shadowrootmode="open"><!---->
+      <label id="label" for="input"><!--?lit$89829076$-->Username</label>
+      <div class="input-bar">
+        <input id="input" readonly="" type="text" value="student-03-a79181d34597@qwiklabs.net" placeholder="••••••••">
+        <span id="copied-message" aria-live="polite">
+          <!--?lit$89829076$-->
+        </span>
+        <div class="button-container">
+          <!--?lit$89829076$-->
+          <ql-icon-button id="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+            content_copy
+          </ql-icon-button>
+        </div>
+      </div>
+    </template>
+      </ql-copyable-input>
+    <!---->
+    </template>
+      </ql-lab-connection-details>
+    <!----><!---->
+      <ql-lab-connection-details class="connection-details"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$--><!---->
+      <ql-copyable-input placeholder="••••••••"><template shadowrootmode="open"><!---->
+      <label id="label" for="input"><!--?lit$89829076$-->Password</label>
+      <div class="input-bar">
+        <input id="input" readonly="" type="text" value="lRFa12Nqtnji" placeholder="••••••••">
+        <span id="copied-message" aria-live="polite">
+          <!--?lit$89829076$-->
+        </span>
+        <div class="button-container">
+          <!--?lit$89829076$-->
+          <ql-icon-button id="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+            content_copy
+          </ql-icon-button>
+        </div>
+      </div>
+    </template>
+      </ql-copyable-input>
+    <!---->
+    </template>
+      </ql-lab-connection-details>
+    <!----><!---->
+      <ql-lab-connection-details class="connection-details"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$--><!---->
+      <ql-copyable-input placeholder="••••••••"><template shadowrootmode="open"><!---->
+      <label id="label" for="input"><!--?lit$89829076$-->Project ID</label>
+      <div class="input-bar">
+        <input id="input" readonly="" type="text" value="qwiklabs-gcp-00-7428d2ede9c2" placeholder="••••••••">
+        <span id="copied-message" aria-live="polite">
+          <!--?lit$89829076$-->
+        </span>
+        <div class="button-container">
+          <!--?lit$89829076$-->
+          <ql-icon-button id="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+            content_copy
+          </ql-icon-button>
+        </div>
+      </div>
+    </template>
+      </ql-copyable-input>
+    <!---->
+    </template>
+      </ql-lab-connection-details>
+    <!----><!--?-->
+        <!--?lit$89829076$-->
+      </div>
+    
+      </div>
+      <!--?lit$89829076$-->
+    </template>
+<script src="./sign_files/api.js(1).download"></script>
+        <script>
+          // Define function so that we can call it again later if we need to reset it
+          // This executes reCAPTCHA and then calls our callback.
+          function executeRecaptchaForStartLab() {
+            grecaptcha.ready(function() {
+              grecaptcha.execute('6LeVI8IUAAAAAJNdox5eTkYrw9SbvhZ1TFyv3iHr', {action: 'start_lab'}).then(function(token) {
+                setInputWithRecaptchaResponseTokenForStartLab('g-recaptcha-response-data-start-lab', token)
+              });
+            });
+          };
+          // Invoke immediately
+          executeRecaptchaForStartLab()
+
+          // Async variant so you can await this function from another async function (no need for
+          // an explicit callback function then!)
+          // Returns a Promise that resolves with the response token.
+          async function executeRecaptchaForStartLabAsync() {
+            return new Promise((resolve, reject) => {
+             grecaptcha.ready(async function() {
+                resolve(await grecaptcha.execute('6LeVI8IUAAAAAJNdox5eTkYrw9SbvhZ1TFyv3iHr', {action: 'start_lab'}))
+              });
+            })
+          };
+
+                  var setInputWithRecaptchaResponseTokenForStartLab = function(id, token) {
+          var element = document.getElementById(id);
+          if (element !== null) element.value = token;
+        }
+
+        </script>
+<input type="hidden" name="g-recaptcha-response-data[start_lab]" id="g-recaptcha-response-data-start-lab" data-sitekey="6LeVI8IUAAAAAJNdox5eTkYrw9SbvhZ1TFyv3iHr" class="g-recaptcha g-recaptcha-response " style="" value="03AFcWeA4l8WdtMwYynJ_dUp2yI856l3WJXow5gsiQWBkWt-uAatw23PBaiM2y9LfGmjjvUPkO8laXkEh4pjqoLcUfZNtfoAVK_V9HwdhwwkaajW7lwtIBkdFesgVzVqggoY0MDPbiuLdfJoqXzEqZo_K8EUbxzHDyfXMlSI-FvwmngWVdyEV-lBl5rQme4th4EJ5kemrjY8wRU714pdurpt86DQAI5ZVS89ei8hRMPTkQyWH3GhpYN9-Nmat5qxJJs8DaIcIQ6V_2tpouAEU2xF-krXjo2poSLUF8_6XPMjwnHfxa6yD1a8fmvlY2nJHJuAmZot0wb52pkadmZcntCQLUKY5bZjTEhE013meqqlIBcnuGuHSfYDI05rNlPEwZkf_qyLC7UrecwpNVBalvftCnt4lwUOaI0vUpTXmldy30W0ZoxCpMmmYLPjKvWPABS-USeynhGMbo-u7iNHh6Ik71jhImOS9grchDlOXkiUMyXn_3cvRboHLnF8wB1UXPyqbV3o2Xrz5KMu9RuoZeBo8qzsT1PiIE7fiZCEIjF7n4c9cjBzumSlZIgIduNwVeRNcoEi3qeInQYhnYPNQLacPnj6D-VFHvjiROUfxI1zpooypr4Uk-XCO4T7XgwQ8eCGNi16xbArS5-BVINs_PHAbqOQkuHOHj1D4WkFsTildb9hzxOOX5gzsype-KYfd1F_wv36iLWQYomyKcDdJUtSoHRghu2rogZJ-LFi4Fhkcye1HlLV_fe2GXPN53DRrCo2vqCNYDcz5qGbGICQKwC2vrYFwDVgWIbX2UgmdiBoNEcWPyBZ6ybIRJZvOu_0_iccXkSuUP2p8kRDQW1o5fYrsTgowtf_BN6LveWJc9XHZJKDHJkdmNM9wd6cvX7lxDe-xLc4FMLmb2tZH3wqES6yTQDeKREi6IMcu5HKSawAjcs8ZtYBuAmRUQPNLfMfhYijJfZLq0NyL3t61jdn7Diyvv1CkkC15SGNkH_OHNHL1wQCWukOLzPeBWnmm1G1Y4MHloKffCOSh38UooJy4B1MWClTndkH30muqMPEhXDiaAR97MUby9CfPwzSTQajrx2w8yw-nyaCMH8n5uPcUnJzF5GNH0IMhlh4ylMVOyFqVVp2HeaVP5DhIrs5avd_NgiTHF6fzdq2ntHDC653gW1pOade1Po3uLHf0DjR_Zfn4Z9sDI7A8GXQhs23y3TRu4mVpopzwCNpv4wXdpgWQcII66Gc3rcyNHwGsp5C8CZtFivGHIqvu7Rn_oSECCxvPgraX1PZ9K9me4HftniXkQMWT7t3uX4023R8l5UASVZuuCbS1ahFRscMHBHITxc22G8GK6TGRIVGMRqzywaHfUNLfx0Hz_Kenny4gsJKJDXeOtg1EzBZoLIoEq9IhzsqdW3MclMFxV6BHbVch7tW0HQvDijPvn2l7WPVrE-aU4sjDA1R2qzFPWdSgwYS0jc8STinnaI039f2vawr7MRt1gquo983fHtZ19rJZswJw8IzLBXsPSaGJr3ehuSjb1utQN1wAs5ksGR6YBeh7LU1H_7CYHWI1cyVbwqQ"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="./sign_files/anchor.html" width="304" height="78" role="presentation" name="a-ke7soe6edzdw" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></input>
+
+<div aria-live="polite" class="hidden" id="recaptcha-v2-start-lab" slot="recaptcha">
+<script src="./sign_files/api.js(2).download" async="" defer=""></script>
+<div data-sitekey="6LeOI8IUAAAAAPkHlMAE9NReCD_1WD81iYlBlCnV" data-callback="recaptchaComplete" data-expired-callback="expireV2Token" class="g-recaptcha "><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="./sign_files/anchor(1).html" width="304" height="78" role="presentation" name="a-ke0f6e7i16vj" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"></iframe></div><textarea id="g-recaptcha-response-1" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./sign_files/saved_resource(1).html"></iframe></div>
+          <noscript>
+            <div>
+              <div style="width: 302px; height: 422px; position: relative;">
+                <div style="width: 302px; height: 422px; position: absolute;">
+                  <iframe
+                    src="https://www.recaptcha.net/recaptcha/api/fallback?k=6LeOI8IUAAAAAPkHlMAE9NReCD_1WD81iYlBlCnV"
+                    name="ReCAPTCHA"
+                    style="width: 302px; height: 422px; border-style: none; border: 0; overflow: hidden;">
+                  </iframe>
+                </div>
+              </div>
+              <div style="width: 300px; height: 60px; border-style: none;
+                bottom: 12px; left: 25px; margin: 0px; padding: 0px; right: 25px;
+                background: #f9f9f9; border: 1px solid #c1c1c1; border-radius: 3px;">
+                <textarea id="g-recaptcha-response" name="g-recaptcha-response"
+                  class="g-recaptcha-response"
+                  style="width: 250px; height: 40px; border: 1px solid #c1c1c1;
+                  margin: 10px 25px; padding: 0px; resize: none;">
+                </textarea>
+              </div>
+            </div>
+          </noscript>
+
+</div>
+</ql-lab-control-panel></ql-drawer>
+<ql-drawer-content id="lab-instructions" slot="drawer-content"><template shadowrootmode="open"><!----><slot></slot></template>
+<ql-snackbar id="alert-snackbar" aria-live="polite" role="alert"><template shadowrootmode="open"><!---->
+      <div class=" snackbar " style="left: 0px;">
+        <slot></slot>
+      </div>
+    </template></ql-snackbar>
+<div class="alert alert--fake js-alert">
+<p class="alert__message js-alert-message" role="alert"></p>
+<ql-icon-button class="alert__close js-alert-close" icon="clear"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="clear" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$-->clear
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template></ql-icon-button>
+<iframe class="l-ie-iframe-fix" tabindex="-1" src="./sign_files/saved_resource(2).html"></iframe>
+</div>
+<div class="lab-content__renderable-instructions js-lab-content">
+<div class="lab-preamble">
+<h1 class="lab-preamble__title">
+Extract, Analyze, and Translate Text from Images with the Cloud ML APIs
+</h1>
+<div class="lab-preamble__details subtitle-headline-1">
+<span>50 minutes</span>
+<span>Free</span>
+<div class="lab__rating">
+<a aria-label="Lab Reviews" href="https://www.cloudskillsboost.google/focuses/28604/reviews?parent=game"><div class="rateit" data-rateit-readonly="true" data-rateit-value="4.5812"><div class="rateit-reset" style="display: none;"></div><div class="rateit-range" style="width: 80px; height: 16px;"><div class="rateit-selected" style="height: 16px; width: 73.2992px;"></div><div class="rateit-hover" style="height:16px"></div></div></div>
+
+</a></div>
+</div>
+</div>
+<div class="lab-outline-place-holder"></div>
+
+<div class="markdown-lab-instructions js-markdown-instructions" id="markdown-lab-instructions">
+
+<h2 id="step1">GSP075</h2>
+<p><img alt="Google Cloud self-paced labs logo" src="./sign_files/GMOHykaqmlTHiqEeQXTySaMXYPHeIvaqa2qHEzw6Occ="></p>
+<h2 id="step2">Overview</h2>
+<p>In this lab you'll explore the power of machine learning by using multiple machine learning APIs  together. Start with Cloud Vision API's text detection method to make use of Optical Character Recognition (OCR) to extract text from images. Then, learn how to translate that text with the Translation API and analyze it with the Natural Language API.</p>
+<h4>What you'll learn</h4>
+<ul>
+<li>
+<p>Creating a Vision API request and calling the API with curl</p>
+</li>
+<li>
+<p>Using the text detection (OCR) method of the Vision API</p>
+</li>
+<li>
+<p>Using the Translation API to translate text from your image</p>
+</li>
+<li>
+<p>Using the Natural Language API to analyze the text</p>
+</li>
+</ul>
+<h2 id="step3">Setup and requirements</h2>
+<h3>Before you click the Start Lab button</h3>
+<p>Read these instructions. Labs are timed and you cannot pause them. The timer, which starts when you click <strong>Start Lab</strong>, shows how long Google Cloud resources will be made available to you.</p>
+<p>This hands-on lab lets you do the lab activities yourself in a real cloud environment, not in a simulation or demo environment. It does so by giving you new, temporary credentials that you use to sign in and access Google Cloud for the duration of the lab.</p>
+<p>To complete this lab, you need:</p>
+<ul>
+<li>Access to a standard internet browser (Chrome browser recommended).</li>
+</ul>
+<ql-warningbox><template shadowrootmode="open"><!---->
+      <aside>
+        <slot></slot>
+      </aside>
+    </template>
+<strong>Note:</strong> Use an Incognito or private browser window to run this lab. This prevents any conflicts between your personal account and the Student account, which may cause extra charges incurred to your personal account.
+</ql-warningbox>
+<ul>
+<li>Time to complete the lab---remember, once you start, you cannot pause a lab.</li>
+</ul>
+<ql-warningbox><template shadowrootmode="open"><!---->
+      <aside>
+        <slot></slot>
+      </aside>
+    </template>
+<strong>Note:</strong> If you already have your own personal Google Cloud account or project, do not use it for this lab to avoid extra charges to your account.
+</ql-warningbox>
+<h3>How to start your lab and sign in to the Google Cloud Console</h3>
+<ol>
+<li>
+<p>Click the <strong>Start Lab</strong> button. If you need to pay for the lab, a pop-up opens for you to select your payment method.
+On the left is the <strong>Lab Details</strong> panel with the following:</p>
+<ul>
+<li>The <strong>Open Google Console</strong> button</li>
+<li>Time remaining</li>
+<li>The temporary credentials that you must use for this lab</li>
+<li>Other information, if needed, to step through this lab</li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Open Google Console</strong>.
+The lab spins up resources, and then opens another tab that shows the <strong>Sign in</strong> page.</p>
+<p><strong><em>Tip:</em></strong> Arrange the tabs in separate windows, side-by-side.</p>
+<ql-infobox><template shadowrootmode="open"><!---->
+      <aside>
+        <slot></slot>
+      </aside>
+    </template>
+<strong>Note: </strong>If you see the <strong>Choose an account</strong> dialog, click <strong>Use Another Account</strong>.        
+ </ql-infobox>
+</li>
+<li>
+<p>If necessary, copy the <strong>Username</strong> from the <strong>Lab Details</strong> panel and paste it into the <strong>Sign in</strong> dialog. Click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Copy the <strong>Password</strong> from the <strong>Lab Details</strong> panel and paste it into the <strong>Welcome</strong> dialog. Click <strong>Next</strong>.</p>
+<ql-infobox><template shadowrootmode="open"><!---->
+      <aside>
+        <slot></slot>
+      </aside>
+    </template>
+<strong>Important: </strong>You must use the credentials from the left panel. Do not use your Google Cloud Skills Boost credentials. 
+ </ql-infobox>
+<ql-warningbox><template shadowrootmode="open"><!---->
+      <aside>
+        <slot></slot>
+      </aside>
+    </template>
+<strong>Note: </strong>Using your own Google Cloud account for this lab may incur extra charges.
+ </ql-warningbox>
+</li>
+<li>
+<p>Click through the subsequent pages:</p>
+<ul>
+<li>Accept the terms and conditions.</li>
+<li>Do not add recovery options or two-factor authentication (because this is a temporary account).</li>
+<li>Do not sign up for free trials.</li>
+</ul>
+</li>
+</ol>
+<p>After a few moments, the Cloud Console opens in this tab.</p>
+<ql-infobox><template shadowrootmode="open"><!---->
+      <aside>
+        <slot></slot>
+      </aside>
+    </template>
+<strong>Note:</strong> You can view the menu with a list of Google Cloud Products and Services by clicking the <strong>Navigation menu</strong> at the top-left.
+<img alt="Navigation menu icon" src="./sign_files/nUxFb6oRFr435O3t6V7WYJAjeDFcrFb16G9wHWp5BzU=">
+</ql-infobox>
+<h3>Activate Cloud Shell</h3>
+<p>Cloud Shell is a virtual machine that is loaded with development tools. It offers a persistent 5GB home directory and runs on the Google Cloud. Cloud Shell provides command-line access to your Google Cloud resources.</p>
+<ol>
+<li>Click <strong>Activate Cloud Shell</strong> <img alt="Activate Cloud Shell icon" src="./sign_files/ep8HmqYGdD_kUncAAYpV47OYoHwC8+g0WK_8sidHquE="> at the top of the Google Cloud console.</li>
+</ol>
+<p>When you are connected, you are already authenticated, and the project is set to your <strong>PROJECT_ID</strong>. The output contains a line that declares the <strong>PROJECT_ID</strong> for this session:</p>
+<ql-code-block output="" language="delphi"><template shadowrootmode="open"><!---->
+      <div class=" container dark-theme ">
+        <pre class="wrap hljs delphi">Your Cloud <span class="hljs-keyword">Platform</span> project <span class="hljs-keyword">in</span> this session <span class="hljs-keyword">is</span> <span class="hljs-keyword">set</span> <span class="hljs-keyword">to</span> YOUR_PROJECT_ID</pre>
+      </div>
+      <!--?lit$89829076$-->
+    </template>
+Your Cloud Platform project in this session is set to YOUR_PROJECT_ID
+</ql-code-block>
+<p><code>gcloud</code> is the command-line tool for Google Cloud. It comes pre-installed on Cloud Shell and supports tab-completion.</p>
+<ol start="2">
+<li>
+<p>(Optional) You can list the active account name with this command:</p>
+</li>
+</ol>
+<ql-code-block language="plaintext"><template shadowrootmode="open"><!---->
+      <div class=" container light-theme ">
+        <pre class="plaintext wrap hljs">gcloud auth list</pre>
+      </div>
+      <!--?lit$89829076$-->
+      <div class="copy-container">
+        <!--?lit$89829076$-->
+      <span class="copied-message" aria-live="polite" role="alert">
+        <!--?lit$89829076$-->Copied!
+      </span>
+    
+        <!--?lit$89829076$-->
+      <ql-icon-button class="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        content_copy
+      </ql-icon-button>
+    
+      </div>
+    
+    </template>
+gcloud auth list
+</ql-code-block>
+<ol start="3">
+<li>
+<p>Click <strong>Authorize</strong>.</p>
+</li>
+<li>
+<p>Your output should now look like this:</p>
+</li>
+</ol>
+<p><strong>Output:</strong></p>
+<ql-code-block language="plaintext" output=""><template shadowrootmode="open"><!---->
+      <div class=" container dark-theme ">
+        <pre class="plaintext wrap hljs">ACTIVE: *
+ACCOUNT: student-01-xxxxxxxxxxxx@qwiklabs.net
+To set the active account, run:
+    $ gcloud config set account `ACCOUNT`</pre>
+      </div>
+      <!--?lit$89829076$-->
+    </template>
+ACTIVE: *
+ACCOUNT: student-01-xxxxxxxxxxxx@qwiklabs.net
+To set the active account, run:
+    $ gcloud config set account `ACCOUNT`
+</ql-code-block>
+<ol start="5">
+<li>
+<p>(Optional) You can list the project ID with this command:</p>
+</li>
+</ol>
+<ql-code-block language="plaintext"><template shadowrootmode="open"><!---->
+      <div class=" container light-theme ">
+        <pre class="plaintext wrap hljs">gcloud config list project</pre>
+      </div>
+      <!--?lit$89829076$-->
+      <div class="copy-container">
+        <!--?lit$89829076$-->
+      <span class="copied-message" aria-live="polite" role="alert">
+        <!--?lit$89829076$-->Copied!
+      </span>
+    
+        <!--?lit$89829076$-->
+      <ql-icon-button class="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        content_copy
+      </ql-icon-button>
+    
+      </div>
+    
+    </template>
+gcloud config list project
+</ql-code-block>
+<p><strong>Output:</strong></p>
+<ql-code-block language="plaintext" output=""><template shadowrootmode="open"><!---->
+      <div class=" container dark-theme ">
+        <pre class="plaintext wrap hljs">[core]
+project = &lt;project_ID&gt;</pre>
+      </div>
+      <!--?lit$89829076$-->
+    </template>
+[core]
+project = &lt;project_ID&gt;
+</ql-code-block>
+<p><strong>Example output:</strong></p>
+<ql-code-block language="plaintext" output=""><template shadowrootmode="open"><!---->
+      <div class=" container dark-theme ">
+        <pre class="plaintext wrap hljs">[core]
+project = qwiklabs-gcp-44776a13dea667a6</pre>
+      </div>
+      <!--?lit$89829076$-->
+    </template>
+[core]
+project = qwiklabs-gcp-44776a13dea667a6
+</ql-code-block>
+<ql-infobox><template shadowrootmode="open"><!---->
+      <aside>
+        <slot></slot>
+      </aside>
+    </template>
+<strong>Note: </strong>For full documentation of <code>gcloud</code>, in Google Cloud, refer to <a href="https://cloud.google.com/sdk/gcloud" target="_blank">the gcloud CLI overview guide</a>.
+</ql-infobox>
+<h2 id="step4">Task 1. Create an API key</h2>
+<p>Since you'll be using <code>curl</code> to send a request to the Vision API, generate an API key to pass in your request URL.</p>
+<ol>
+<li>To create an API key, navigate to: <strong>Navigation Menu</strong> &gt; <strong>APIs &amp; services</strong> &gt; <strong>Credentials</strong>:</li>
+</ol>
+<p><img alt="Expanded navigation menu highlighting the APIs and Services submenu and Credentials option" src="./sign_files/+P6jLoRF1_5zohA4QDir1sG9WKEZPoya7uwopH2Kk00="></p>
+<ol start="2">
+<li>
+<p>Click <strong>+ Create Credentials</strong>.</p>
+</li>
+<li>
+<p>In the drop down menu, select <strong>API key</strong>:</p>
+</li>
+</ol>
+<p><img alt="api key option highlighted in the dropdown menu" src="./sign_files/cO1_e9TXIdPC4AxJ6eSqF6+oOe3NrKJQXYFmANbI0wE="></p>
+<ol start="4">
+<li>
+<p>Next, copy the key you just generated and click <strong>Close</strong>.</p>
+</li>
+<li>
+<p>Now save the API key to an environment variable to avoid having to insert the value of your API key in each request.</p>
+</li>
+<li>
+<p>Run the following in Cloud Shell, replacing <code>&lt;your_api_key&gt;</code> with the key you just copied:</p>
+</li>
+</ol>
+<ql-code-block language="plaintext"><template shadowrootmode="open"><!---->
+      <div class=" container light-theme ">
+        <pre class="plaintext wrap hljs">export API_KEY=&lt;YOUR_API_KEY&gt;</pre>
+      </div>
+      <!--?lit$89829076$-->
+      <div class="copy-container">
+        <!--?lit$89829076$-->
+      <span class="copied-message" aria-live="off" role="alert">
+        <!--?lit$89829076$-->Copied!
+      </span>
+    
+        <!--?lit$89829076$-->
+      <ql-icon-button class="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        content_copy
+      </ql-icon-button>
+    
+      </div>
+    
+    </template>
+export API_KEY=&lt;YOUR_API_KEY&gt;
+</ql-code-block>
+<p>Click <strong>Check my progress</strong> to verify your performed task.</p>
+<ql-activity-tracking step="1" labinstanceid="75262894"><template shadowrootmode="open"><!---->
+      <ql-assessment aria-label="Assessment Completed!"><template shadowrootmode="open"><!---->
+      <div class="assessment-left">
+        <ql-assessment-status><template shadowrootmode="open"><!---->
+      <div class="status" role="progressbar" aria-live="assertive" status="complete" tooltip="" aria-hidden="false" aria-valuenow="100" aria-label="Successful."><!--?lit$89829076$-->
+      <p class="non-visible-screen-reader-description"><!--?lit$89829076$-->Assessment Completed!</p>
+    </div>
+    </template>
+        </ql-assessment-status>
+      </div>
+
+      <div class="assessment-right">
+        <div class="assessment-content">
+          <slot></slot>
+        </div>
+
+        <!--?lit$89829076$-->
+      <span class="message" aria-live="polite"><!--?lit$89829076$-->Assessment Completed!</span>
+    
+      </div>
+    </template>
+        <p>
+          <slot><!--?lit$89829076$-->I completed this step.</slot>
+        </p>
+
+        <ql-button aria-label="Check my progress"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="true" tabindex="0">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-button mdc-button--unelevated gm-button-fill gm-text-label-button ql-button default " aria-busy="false" disabled="">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$--><slot></slot>
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+          <!--?lit$89829076$-->Check my progress
+        </ql-button>
+      </ql-assessment>
+    </template>
+    Create an API Key
+</ql-activity-tracking>
+<h2 id="step5">Task 2. Upload an image to a Cloud Storage bucket</h2>
+<h3>Create a Cloud Storage bucket</h3>
+<p>There are two ways to send an image to the Vision API for image detection: by sending the API a base64 encoded image string, or passing it the URL of a file stored in Cloud Storage. For this lab you'll create a Cloud Storage bucket to store your images.</p>
+<ol>
+<li>
+<p>Navigate to the <strong>Navigation menu</strong> &gt; <strong>Cloud Storage</strong> browser in the Console, then click <strong>Create bucket</strong>.</p>
+</li>
+<li>
+<p>Give your bucket a unique name:<ql-variable key="project_0.project_id" placeholder="&lt;filled in at lab start&gt;"><template shadowrootmode="open"><!----><code class="default"><!--?lit$89829076$-->qwiklabs-gcp-00-7428d2ede9c2</code></template></ql-variable>-bucket.</p>
+</li>
+<li>
+<p>After naming your bucket, click <strong>Choose how to control access to objects</strong>.</p>
+</li>
+<li>
+<p>Uncheck the box for <strong>Enforce public access prevention on this bucket</strong>.</p>
+</li>
+<li>
+<p>Choose <strong>Fine-grained</strong> under Access Control and click <strong>Create</strong>.</p>
+</li>
+</ol>
+<h3>Upload an image to your bucket</h3>
+<ol>
+<li>Right click on the following image of a French sign, then click <strong>Save image as</strong> and save it to your computer as <strong>sign.jpg</strong>.</li>
+</ol>
+<p><img alt="Le Bien Public French sign" src="./sign_files/cBoI5P4dZ6k_Ar5Mv7eME_0fCb4G6nIGB0odCXzpEa4="></p>
+<ol start="2">
+<li>Navigate to the bucket you just created in the Cloud Storage browser and click <strong>Upload files</strong>, then select <strong>sign.jpg</strong>.</li>
+</ol>
+<p>Next you'll allow the file to be viewed publicly while keeping the access to the bucket private.</p>
+<ol start="3">
+<li>Click on the 3 dots for the image file:</li>
+</ol>
+<p><img alt="Objects tab with uploaded sign image file, and more options button highlighted" src="./sign_files/JJhxfArof8XyJhiRGth4TNIvtk9vQpW5k1w2qxs6YAI="></p>
+<ol start="4">
+<li>
+<p>Select <strong>Edit access</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Add Entry</strong> and set the following:</p>
+</li>
+</ol>
+<ul>
+<li>Select <strong>Public</strong> for the Entity.</li>
+<li>Ensure <strong>allUsers</strong> is the value for the Name.</li>
+<li>Select <strong>Reader</strong> for the Access.</li>
+</ul>
+<p><img alt="Entity, Name and Access fields of newly added entry highlighted" src="./sign_files/WtQ9kozdmpxItefC9LzzjAegB85xqd4GMlGpUBH++Vs="></p>
+<ol start="6">
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p>You'll now see that the file has public access.</p>
+<p>Now that you have the file in your bucket, you're ready to create a Vision API request, passing it the URL of this picture.</p>
+<p>Click <strong>Check my progress</strong> to verify your performed task.</p>
+<ql-activity-tracking step="2" labinstanceid="75262894"><template shadowrootmode="open"><!---->
+      <ql-assessment aria-label=""><template shadowrootmode="open"><!---->
+      <div class="assessment-left">
+        <ql-assessment-status><template shadowrootmode="open"><!---->
+      <div class="status" role="progressbar" aria-live="assertive" status="initialized" tooltip="" aria-hidden="true" aria-valuenow="0" aria-label=""><!--?lit$89829076$--></div>
+    </template>
+        </ql-assessment-status>
+      </div>
+
+      <div class="assessment-right">
+        <div class="assessment-content">
+          <slot></slot>
+        </div>
+
+        <!--?lit$89829076$-->
+      </div>
+    </template>
+        <p>
+          <slot><!--?lit$89829076$-->I completed this step.</slot>
+        </p>
+
+        <ql-button aria-label="Check my progress"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-button mdc-button--unelevated gm-button-fill gm-text-label-button ql-button default " aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$--><slot></slot>
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+          <!--?lit$89829076$-->Check my progress
+        </ql-button>
+      </ql-assessment>
+    </template>
+    Upload image to a bucket
+</ql-activity-tracking>
+<h2 id="step6">Task 3. Create your Cloud Vision API request</h2>
+<ol>
+<li>In your Cloud Shell environment, create an <code>ocr-request.json</code> file, then add the code below to the file, replacing <strong>my-bucket-name</strong> with the name of the bucket you created. You can create the file using one of your preferred command line editors (<code>nano</code>, <code>vim</code>, <code>emacs</code>) or click the pencil icon to open the code editor in Cloud Shell:</li>
+</ol>
+<p><img alt="Open Editor button displaying the pencil icon" src="./sign_files/Th5i4GhZ4KZmFOQ9NWdNmyDXleSWVH9rxHGBt3ECj3M="></p>
+<ol start="2">
+<li>
+<p>Add the following to your <code>ocr-request.json</code> file:</p>
+</li>
+</ol>
+<ql-code-block language="plaintext"><template shadowrootmode="open"><!---->
+      <div class=" container light-theme ">
+        <pre class="plaintext wrap hljs">{
+  "requests": [
+      {
+        "image": {
+          "source": {
+              "gcsImageUri": "gs://my-bucket-name/sign.jpg"
+          }
+        },
+        "features": [
+          {
+            "type": "TEXT_DETECTION",
+            "maxResults": 10
+          }
+        ]
+      }
+  ]
+}</pre>
+      </div>
+      <!--?lit$89829076$-->
+      <div class="copy-container">
+        <!--?lit$89829076$-->
+      <span class="copied-message" aria-live="polite" role="alert">
+        <!--?lit$89829076$-->Copied!
+      </span>
+    
+        <!--?lit$89829076$-->
+      <ql-icon-button class="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        content_copy
+      </ql-icon-button>
+    
+      </div>
+    
+    </template>
+{
+  "requests": [
+      {
+        "image": {
+          "source": {
+              "gcsImageUri": "gs://my-bucket-name/sign.jpg"
+          }
+        },
+        "features": [
+          {
+            "type": "TEXT_DETECTION",
+            "maxResults": 10
+          }
+        ]
+      }
+  ]
+}
+</ql-code-block>
+<p>You're going to use the <a href="https://cloud.google.com/vision/docs/ocr" target="_blank">TEXT_DETECTION</a> feature of the Cloud Vision API. This will run optical character recognition (OCR) on the image to extract text.</p>
+<h2 id="step7">Task 4. Call the text detection method</h2>
+<ol>
+<li>
+<p>In Cloud Shell, call the Cloud Vision API with <code>curl</code>:</p>
+</li>
+</ol>
+<ql-code-block language="plaintext"><template shadowrootmode="open"><!---->
+      <div class=" container light-theme ">
+        <pre class="plaintext wrap hljs">curl -s -X POST -H "Content-Type: application/json" --data-binary @ocr-request.json  https://vision.googleapis.com/v1/images:annotate?key=${API_KEY}</pre>
+      </div>
+      <!--?lit$89829076$-->
+      <div class="copy-container">
+        <!--?lit$89829076$-->
+      <span class="copied-message" aria-live="polite" role="alert">
+        <!--?lit$89829076$-->Copied!
+      </span>
+    
+        <!--?lit$89829076$-->
+      <ql-icon-button class="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        content_copy
+      </ql-icon-button>
+    
+      </div>
+    
+    </template>
+curl -s -X POST -H "Content-Type: application/json" --data-binary @ocr-request.json  https://vision.googleapis.com/v1/images:annotate?key=${API_KEY}
+</ql-code-block>
+<p>The first part of your response should look like the following:</p>
+<ql-code-block output="" language="json"><template shadowrootmode="open"><!---->
+      <div class=" container dark-theme ">
+        <pre class="wrap hljs json">{
+  <span class="hljs-attr">"responses"</span>: [
+    {
+      <span class="hljs-attr">"textAnnotations"</span>: [
+        {
+          <span class="hljs-attr">"locale"</span>: <span class="hljs-string">"fr"</span>,
+          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"LE BIEN PUBLIC\nles dépêches\nPour Obama,\nla moutarde\nest\nde Dijon\n"</span>,
+          <span class="hljs-attr">"boundingPoly"</span>: {
+            <span class="hljs-attr">"vertices"</span>: [
+              {
+                <span class="hljs-attr">"x"</span>: <span class="hljs-number">138</span>,
+                <span class="hljs-attr">"y"</span>: <span class="hljs-number">40</span>
+              },
+              {
+                <span class="hljs-attr">"x"</span>: <span class="hljs-number">622</span>,
+                <span class="hljs-attr">"y"</span>: <span class="hljs-number">40</span>
+              },
+              {
+                <span class="hljs-attr">"x"</span>: <span class="hljs-number">622</span>,
+                <span class="hljs-attr">"y"</span>: <span class="hljs-number">795</span>
+              },
+              {
+                <span class="hljs-attr">"x"</span>: <span class="hljs-number">138</span>,
+                <span class="hljs-attr">"y"</span>: <span class="hljs-number">795</span>
+              }
+            ]
+          }
+        },
+        {
+          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"LE"</span>,
+          <span class="hljs-attr">"boundingPoly"</span>: {
+            <span class="hljs-attr">"vertices"</span>: [
+              {
+                <span class="hljs-attr">"x"</span>: <span class="hljs-number">138</span>,
+                <span class="hljs-attr">"y"</span>: <span class="hljs-number">99</span>
+              },
+              {
+                <span class="hljs-attr">"x"</span>: <span class="hljs-number">274</span>,
+                <span class="hljs-attr">"y"</span>: <span class="hljs-number">82</span>
+              },
+              {
+                <span class="hljs-attr">"x"</span>: <span class="hljs-number">283</span>,
+                <span class="hljs-attr">"y"</span>: <span class="hljs-number">157</span>
+              },
+              {
+                <span class="hljs-attr">"x"</span>: <span class="hljs-number">147</span>,
+                <span class="hljs-attr">"y"</span>: <span class="hljs-number">173</span>
+              }
+            ]
+          }
+        },
+        {
+          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"BIEN"</span>,
+          <span class="hljs-attr">"boundingPoly"</span>: {
+            <span class="hljs-attr">"vertices"</span>: [
+              {
+                <span class="hljs-attr">"x"</span>: <span class="hljs-number">291</span>,
+                <span class="hljs-attr">"y"</span>: <span class="hljs-number">79</span>
+              },
+              {
+                <span class="hljs-attr">"x"</span>: <span class="hljs-number">413</span>,
+                <span class="hljs-attr">"y"</span>: <span class="hljs-number">64</span>
+              },
+              {
+                <span class="hljs-attr">"x"</span>: <span class="hljs-number">422</span>,
+                <span class="hljs-attr">"y"</span>: <span class="hljs-number">139</span>
+              },
+              {
+                <span class="hljs-attr">"x"</span>: <span class="hljs-number">300</span>,
+                <span class="hljs-attr">"y"</span>: <span class="hljs-number">154</span>
+              }
+            ]
+          }
+            ...
+      ]
+}]
+}</pre>
+      </div>
+      <!--?lit$89829076$-->
+    </template>
+{
+  "responses": [
+    {
+      "textAnnotations": [
+        {
+          "locale": "fr",
+          "description": "LE BIEN PUBLIC\nles dépêches\nPour Obama,\nla moutarde\nest\nde Dijon\n",
+          "boundingPoly": {
+            "vertices": [
+              {
+                "x": 138,
+                "y": 40
+              },
+              {
+                "x": 622,
+                "y": 40
+              },
+              {
+                "x": 622,
+                "y": 795
+              },
+              {
+                "x": 138,
+                "y": 795
+              }
+            ]
+          }
+        },
+        {
+          "description": "LE",
+          "boundingPoly": {
+            "vertices": [
+              {
+                "x": 138,
+                "y": 99
+              },
+              {
+                "x": 274,
+                "y": 82
+              },
+              {
+                "x": 283,
+                "y": 157
+              },
+              {
+                "x": 147,
+                "y": 173
+              }
+            ]
+          }
+        },
+        {
+          "description": "BIEN",
+          "boundingPoly": {
+            "vertices": [
+              {
+                "x": 291,
+                "y": 79
+              },
+              {
+                "x": 413,
+                "y": 64
+              },
+              {
+                "x": 422,
+                "y": 139
+              },
+              {
+                "x": 300,
+                "y": 154
+              }
+            ]
+          }
+            ...
+      ]
+}]
+}
+</ql-code-block>
+<p>The OCR method is able to extract lots of text from the image.</p>
+<p>The first piece of data you get back from <code>textAnnotations</code> is the entire block of text the API found in the image. This includes:</p>
+<ul>
+<li>the language code (in this case fr for French)</li>
+<li>a string of the text</li>
+<li>a bounding box indicating where the text was found in the image</li>
+</ul>
+<p>Then you get an object for each word found in the text with a bounding box for that specific word.</p>
+<ql-infobox><template shadowrootmode="open"><!---->
+      <aside>
+        <slot></slot>
+      </aside>
+    </template><strong>Note: </strong>For images with more text, the Cloud Vision API also has a <a href="https://cloud.google.com/vision/docs/reference/rest/v1/images/annotate#TextAnnotation" target="_blank">DOCUMENT_TEXT_DETECTION feature</a>. This response includes additional information and breaks text down into page, blocks, paragraphs, and words.
+</ql-infobox>
+<p>Unless you speak French you probably don't know what this says. The next step is translation.</p>
+<ol start="2">
+<li>
+<p>Run the following <code>curl</code> command to save the response to an <code>ocr-response.json</code> file so it can be referenced later:</p>
+</li>
+</ol>
+<ql-code-block language="plaintext"><template shadowrootmode="open"><!---->
+      <div class=" container light-theme ">
+        <pre class="plaintext wrap hljs">curl -s -X POST -H "Content-Type: application/json" --data-binary @ocr-request.json  https://vision.googleapis.com/v1/images:annotate?key=${API_KEY} -o ocr-response.json</pre>
+      </div>
+      <!--?lit$89829076$-->
+      <div class="copy-container">
+        <!--?lit$89829076$-->
+      <span class="copied-message" aria-live="polite" role="alert">
+        <!--?lit$89829076$-->Copied!
+      </span>
+    
+        <!--?lit$89829076$-->
+      <ql-icon-button class="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        content_copy
+      </ql-icon-button>
+    
+      </div>
+    
+    </template>
+curl -s -X POST -H "Content-Type: application/json" --data-binary @ocr-request.json  https://vision.googleapis.com/v1/images:annotate?key=${API_KEY} -o ocr-response.json
+</ql-code-block>
+<h2 id="step8">Task 5. Send text from the image to the Translation API</h2>
+<p>The  <a href="https://cloud.google.com/translate/docs/reference/translate" target="_blank">Translation API</a> can translate text into 100+ languages. It can also detect the language of the input text. To translate the French text into English, pass the text and the language code for the target language (en-US) to the Translation API.</p>
+<ol>
+<li>
+<p>First, create a <code>translation-request.json</code> file and add the following to it:</p>
+</li>
+</ol>
+<ql-code-block language="plaintext"><template shadowrootmode="open"><!---->
+      <div class=" container light-theme ">
+        <pre class="plaintext wrap hljs">{
+  "q": "your_text_here",
+  "target": "en"
+}</pre>
+      </div>
+      <!--?lit$89829076$-->
+      <div class="copy-container">
+        <!--?lit$89829076$-->
+      <span class="copied-message" aria-live="polite" role="alert">
+        <!--?lit$89829076$-->Copied!
+      </span>
+    
+        <!--?lit$89829076$-->
+      <ql-icon-button class="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        content_copy
+      </ql-icon-button>
+    
+      </div>
+    
+    </template>
+{
+  "q": "your_text_here",
+  "target": "en"
+}
+</ql-code-block>
+<p><code>q</code> is where you'll pass the string to translate.</p>
+<ol start="2">
+<li>
+<p><strong>Save</strong> the file.</p>
+</li>
+<li>
+<p>Run this Bash command in Cloud Shell to extract the image text from the previous step and copy it into a new <code>translation-request.json</code> (all in one command):</p>
+</li>
+</ol>
+<ql-code-block language="plaintext"><template shadowrootmode="open"><!---->
+      <div class=" container light-theme ">
+        <pre class="plaintext wrap hljs">STR=$(jq .responses[0].textAnnotations[0].description ocr-response.json) &amp;&amp; STR="${STR//\"}" &amp;&amp; sed -i "s|your_text_here|$STR|g" translation-request.json</pre>
+      </div>
+      <!--?lit$89829076$-->
+      <div class="copy-container">
+        <!--?lit$89829076$-->
+      <span class="copied-message" aria-live="polite" role="alert">
+        <!--?lit$89829076$-->Copied!
+      </span>
+    
+        <!--?lit$89829076$-->
+      <ql-icon-button class="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        content_copy
+      </ql-icon-button>
+    
+      </div>
+    
+    </template>
+STR=$(jq .responses[0].textAnnotations[0].description ocr-response.json) &amp;&amp; STR="${STR//\"}" &amp;&amp; sed -i "s|your_text_here|$STR|g" translation-request.json
+</ql-code-block>
+<ol start="4">
+<li>
+<p>Now you're ready to call the Translation API. This command will also copy the response into a <code>translation-response.json</code> file:</p>
+</li>
+</ol>
+<ql-code-block language="plaintext"><template shadowrootmode="open"><!---->
+      <div class=" container light-theme ">
+        <pre class="plaintext wrap hljs">curl -s -X POST -H "Content-Type: application/json" --data-binary @translation-request.json https://translation.googleapis.com/language/translate/v2?key=${API_KEY} -o translation-response.json</pre>
+      </div>
+      <!--?lit$89829076$-->
+      <div class="copy-container">
+        <!--?lit$89829076$-->
+      <span class="copied-message" aria-live="polite" role="alert">
+        <!--?lit$89829076$-->Copied!
+      </span>
+    
+        <!--?lit$89829076$-->
+      <ql-icon-button class="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        content_copy
+      </ql-icon-button>
+    
+      </div>
+    
+    </template>
+curl -s -X POST -H "Content-Type: application/json" --data-binary @translation-request.json https://translation.googleapis.com/language/translate/v2?key=${API_KEY} -o translation-response.json
+</ql-code-block>
+<ol start="5">
+<li>
+<p>Run this command to inspect the file with the Translation API response:</p>
+</li>
+</ol>
+<ql-code-block language="plaintext"><template shadowrootmode="open"><!---->
+      <div class=" container light-theme ">
+        <pre class="plaintext wrap hljs">cat translation-response.json</pre>
+      </div>
+      <!--?lit$89829076$-->
+      <div class="copy-container">
+        <!--?lit$89829076$-->
+      <span class="copied-message" aria-live="polite" role="alert">
+        <!--?lit$89829076$-->Copied!
+      </span>
+    
+        <!--?lit$89829076$-->
+      <ql-icon-button class="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        content_copy
+      </ql-icon-button>
+    
+      </div>
+    
+    </template>
+cat translation-response.json
+</ql-code-block>
+<p>Now you can understand more of what the sign said!</p>
+<ql-code-block output="" language="json"><template shadowrootmode="open"><!---->
+      <div class=" container dark-theme ">
+        <pre class="wrap hljs json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"translations"</span>: [
+      {
+        <span class="hljs-attr">"translatedText"</span>: <span class="hljs-string">"TO THE PUBLIC GOOD the dispatches For Obama, the mustard is from Dijon"</span>,
+        <span class="hljs-attr">"detectedSourceLanguage"</span>: <span class="hljs-string">"fr"</span>
+      }
+    ]
+  }
+}</pre>
+      </div>
+      <!--?lit$89829076$-->
+    </template> 
+{
+  "data": {
+    "translations": [
+      {
+        "translatedText": "TO THE PUBLIC GOOD the dispatches For Obama, the mustard is from Dijon",
+        "detectedSourceLanguage": "fr"
+      }
+    ]
+  }
+}
+</ql-code-block>
+<p>In the response:</p>
+<ul>
+<li>
+<code>translatedText</code> contains the resulting translation</li>
+<li>
+<code>detectedSourceLanguage</code> is <code>fr</code>, the ISO language code for French.</li>
+</ul>
+<p>The Translation API supports 100+ languages, all of which are listed in the <a href="https://cloud.google.com/translate/docs/languages" target="_blank">Language support reference</a>.</p>
+<p>In addition to translating the text from our image, you might want to do more analysis on it. That's where the Natural Language API comes in handy. Onward to the next step!</p>
+<h2 id="step9">Task 6. Analyzing the image's text with the Natural Language API</h2>
+<p>The Natural Language API helps you understand text by extracting entities, analyzing sentiment and syntax, and classifying text into categories. Use the <code>analyzeEntities</code> method to see what entities the Natural Language API can find in the text from your image.</p>
+<ol>
+<li>
+<p>To set up the API request, create a <code>nl-request.json</code> file with the following:</p>
+</li>
+</ol>
+<ql-code-block language="plaintext"><template shadowrootmode="open"><!---->
+      <div class=" container light-theme ">
+        <pre class="plaintext wrap hljs">{
+  "document":{
+    "type":"PLAIN_TEXT",
+    "content":"your_text_here"
+  },
+  "encodingType":"UTF8"
+}</pre>
+      </div>
+      <!--?lit$89829076$-->
+      <div class="copy-container">
+        <!--?lit$89829076$-->
+      <span class="copied-message" aria-live="polite" role="alert">
+        <!--?lit$89829076$-->Copied!
+      </span>
+    
+        <!--?lit$89829076$-->
+      <ql-icon-button class="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        content_copy
+      </ql-icon-button>
+    
+      </div>
+    
+    </template>
+{
+  "document":{
+    "type":"PLAIN_TEXT",
+    "content":"your_text_here"
+  },
+  "encodingType":"UTF8"
+}
+</ql-code-block>
+<p>In the request, you're telling the Natural Language API about the text you're sending:</p>
+<ul>
+<li>
+<p><strong>type:</strong> supported type values are <code>PLAIN_TEXT</code> or <code>HTML</code>.</p>
+</li>
+<li>
+<p><strong>content:</strong> pass the text to send to the Natural Language API for analysis. The Natural Language API also supports sending files stored in Cloud Storage for text processing. To send a file from Cloud Storage, replace <code>content</code> with <code>gcsContentUri</code> and use the value of the text file's uri in Cloud Storage.</p>
+</li>
+<li>
+<p><strong>encodingType:</strong> tells the API which type of text encoding to use when processing the text. The API will use this to calculate where specific entities appear in the text.</p>
+</li>
+</ul>
+<ol start="2">
+<li>
+<p>Run this Bash command in Cloud Shell to copy the translated text into the content block of the Natural Language API request:</p>
+</li>
+</ol>
+<ql-code-block language="plaintext"><template shadowrootmode="open"><!---->
+      <div class=" container light-theme ">
+        <pre class="plaintext wrap hljs">STR=$(jq .data.translations[0].translatedText  translation-response.json) &amp;&amp; STR="${STR//\"}" &amp;&amp; sed -i "s|your_text_here|$STR|g" nl-request.json</pre>
+      </div>
+      <!--?lit$89829076$-->
+      <div class="copy-container">
+        <!--?lit$89829076$-->
+      <span class="copied-message" aria-live="polite" role="alert">
+        <!--?lit$89829076$-->Copied!
+      </span>
+    
+        <!--?lit$89829076$-->
+      <ql-icon-button class="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        content_copy
+      </ql-icon-button>
+    
+      </div>
+    
+    </template>
+STR=$(jq .data.translations[0].translatedText  translation-response.json) &amp;&amp; STR="${STR//\"}" &amp;&amp; sed -i "s|your_text_here|$STR|g" nl-request.json
+</ql-code-block>
+<p>The <code>nl-request.json</code> file now contains the translated English text from the original image. Time to analyze it!</p>
+<ol start="3">
+<li>
+<p>Call the <code>analyzeEntities</code> endpoint of the Natural Language API with this <code>curl</code> request:</p>
+</li>
+</ol>
+<ql-code-block language="plaintext"><template shadowrootmode="open"><!---->
+      <div class=" container light-theme ">
+        <pre class="plaintext wrap hljs">curl "https://language.googleapis.com/v1/documents:analyzeEntities?key=${API_KEY}" \
+  -s -X POST -H "Content-Type: application/json" --data-binary @nl-request.json</pre>
+      </div>
+      <!--?lit$89829076$-->
+      <div class="copy-container">
+        <!--?lit$89829076$-->
+      <span class="copied-message" aria-live="polite" role="alert">
+        <!--?lit$89829076$-->Copied!
+      </span>
+    
+        <!--?lit$89829076$-->
+      <ql-icon-button class="copy-button" label="Copy" tip="Copy"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-icon-button mdc-icon-button--display-flex gm-icon-button google-material-icons " aria-label="Copy" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-icon-button__ripple"></span>
+      <!--?lit$89829076$--><slot></slot>
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        content_copy
+      </ql-icon-button>
+    
+      </div>
+    
+    </template>
+curl "https://language.googleapis.com/v1/documents:analyzeEntities?key=${API_KEY}" \
+  -s -X POST -H "Content-Type: application/json" --data-binary @nl-request.json
+</ql-code-block>
+<p>If you scroll through the response you can see the entities the Natural Language API found:</p>
+<ql-code-block output="" language="json"><template shadowrootmode="open"><!---->
+      <div class=" container dark-theme ">
+        <pre class="wrap hljs json">{
+  <span class="hljs-attr">"entities"</span>: [
+    {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"dispatches"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"OTHER"</span>,
+      <span class="hljs-attr">"metadata"</span>: {},
+      <span class="hljs-attr">"salience"</span>: <span class="hljs-number">0.3560996</span>,
+      <span class="hljs-attr">"mentions"</span>: [
+        {
+          <span class="hljs-attr">"text"</span>: {
+            <span class="hljs-attr">"content"</span>: <span class="hljs-string">"dispatches"</span>,
+            <span class="hljs-attr">"beginOffset"</span>: <span class="hljs-number">23</span>
+          },
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"COMMON"</span>
+        }
+      ]
+    },
+    {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"mustard"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"OTHER"</span>,
+      <span class="hljs-attr">"metadata"</span>: {},
+      <span class="hljs-attr">"salience"</span>: <span class="hljs-number">0.2878307</span>,
+      <span class="hljs-attr">"mentions"</span>: [
+        {
+          <span class="hljs-attr">"text"</span>: {
+            <span class="hljs-attr">"content"</span>: <span class="hljs-string">"mustard"</span>,
+            <span class="hljs-attr">"beginOffset"</span>: <span class="hljs-number">38</span>
+          },
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"COMMON"</span>
+        }
+      ]
+    },
+    {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Obama"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"PERSON"</span>,
+      <span class="hljs-attr">"metadata"</span>: {
+        <span class="hljs-attr">"mid"</span>: <span class="hljs-string">"/m/02mjmr"</span>,
+        <span class="hljs-attr">"wikipedia_url"</span>: <span class="hljs-string">"https://en.wikipedia.org/wiki/Barack_Obama"</span>
+      },
+      <span class="hljs-attr">"salience"</span>: <span class="hljs-number">0.16260329</span>,
+      <span class="hljs-attr">"mentions"</span>: [
+        {
+          <span class="hljs-attr">"text"</span>: {
+            <span class="hljs-attr">"content"</span>: <span class="hljs-string">"Obama"</span>,
+            <span class="hljs-attr">"beginOffset"</span>: <span class="hljs-number">31</span>
+          },
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"PROPER"</span>
+        }
+      ]
+    },
+    {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Dijon"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"LOCATION"</span>,
+      <span class="hljs-attr">"metadata"</span>: {
+        <span class="hljs-attr">"mid"</span>: <span class="hljs-string">"/m/0pbhz"</span>,
+        <span class="hljs-attr">"wikipedia_url"</span>: <span class="hljs-string">"https://en.wikipedia.org/wiki/Dijon"</span>
+      },
+      <span class="hljs-attr">"salience"</span>: <span class="hljs-number">0.08129317</span>,
+      <span class="hljs-attr">"mentions"</span>: [
+        {
+          <span class="hljs-attr">"text"</span>: {
+            <span class="hljs-attr">"content"</span>: <span class="hljs-string">"Dijon"</span>,
+            <span class="hljs-attr">"beginOffset"</span>: <span class="hljs-number">54</span>
+          },
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"PROPER"</span>
+        }
+      ]
+    }
+  ],
+  <span class="hljs-attr">"language"</span>: <span class="hljs-string">"en"</span>
+}</pre>
+      </div>
+      <!--?lit$89829076$-->
+    </template> 
+{
+  "entities": [
+    {
+      "name": "dispatches",
+      "type": "OTHER",
+      "metadata": {},
+      "salience": 0.3560996,
+      "mentions": [
+        {
+          "text": {
+            "content": "dispatches",
+            "beginOffset": 23
+          },
+          "type": "COMMON"
+        }
+      ]
+    },
+    {
+      "name": "mustard",
+      "type": "OTHER",
+      "metadata": {},
+      "salience": 0.2878307,
+      "mentions": [
+        {
+          "text": {
+            "content": "mustard",
+            "beginOffset": 38
+          },
+          "type": "COMMON"
+        }
+      ]
+    },
+    {
+      "name": "Obama",
+      "type": "PERSON",
+      "metadata": {
+        "mid": "/m/02mjmr",
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Barack_Obama"
+      },
+      "salience": 0.16260329,
+      "mentions": [
+        {
+          "text": {
+            "content": "Obama",
+            "beginOffset": 31
+          },
+          "type": "PROPER"
+        }
+      ]
+    },
+    {
+      "name": "Dijon",
+      "type": "LOCATION",
+      "metadata": {
+        "mid": "/m/0pbhz",
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Dijon"
+      },
+      "salience": 0.08129317,
+      "mentions": [
+        {
+          "text": {
+            "content": "Dijon",
+            "beginOffset": 54
+          },
+          "type": "PROPER"
+        }
+      ]
+    }
+  ],
+  "language": "en"
+}
+</ql-code-block>
+<p>For entities that have a wikipedia page, the API provides metadata including the URL of that page along with the entity's <code>mid</code>. The <code>mid</code> is an ID that maps to this entity in Google's Knowledge Graph. To get more information on it, you could call the  <a href="https://developers.google.com/knowledge-graph/" target="_blank">Knowledge Graph API</a>, passing it this ID. For all entities, the Natural Language API tells us the places it appeared in the text (<code>mentions</code>), the <code>type</code> of entity, and <code>salience</code> (a [0,1] range indicating how important the entity is to the text as a whole). In addition to English, the Natural Language API also supports the languages listed in the  <a href="https://cloud.google.com/natural-language/docs/languages" target="_blank">Language Support reference</a>.</p>
+<p>Looking at this image it's relatively easy to pick out the important entities, but if you had a library of thousands of images this would be much more difficult. OCR, translation, and natural language processing can help to extract meaning from large datasets of images.</p>
+<p>Click <strong>Check my progress</strong> to verify your performed task.</p>
+<ql-activity-tracking step="3" labinstanceid="75262894"><template shadowrootmode="open"><!---->
+      <ql-assessment aria-label=""><template shadowrootmode="open"><!---->
+      <div class="assessment-left">
+        <ql-assessment-status><template shadowrootmode="open"><!---->
+      <div class="status" role="progressbar" aria-live="assertive" status="initialized" tooltip="" aria-hidden="true" aria-valuenow="0" aria-label=""><!--?lit$89829076$--></div>
+    </template>
+        </ql-assessment-status>
+      </div>
+
+      <div class="assessment-right">
+        <div class="assessment-content">
+          <slot></slot>
+        </div>
+
+        <!--?lit$89829076$-->
+      </div>
+    </template>
+        <p>
+          <slot><!--?lit$89829076$-->I completed this step.</slot>
+        </p>
+
+        <ql-button aria-label="Check my progress"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-button mdc-button--unelevated gm-button-fill gm-text-label-button ql-button default " aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$--><slot></slot>
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+          <!--?lit$89829076$-->Check my progress
+        </ql-button>
+      </ql-assessment>
+    </template>
+    Analyzing the image's text with the Natural Language API
+</ql-activity-tracking>
+<h2 id="step10">Congratulations!</h2>
+<p>You've learned how to combine 3 different machine learning APIs: the Vision API's OCR method extracted text from an image, then the Translation API translated that text to English and the Natural Language API to found entities in that text.</p>
+<h3>What was covered</h3>
+<ul>
+<li>
+<p>Use cases for combining multiple machine learning APIs</p>
+</li>
+<li>
+<p>Creating a Vision API OCR request and calling the API with curl</p>
+</li>
+<li>
+<p>Translating text with the Translation API</p>
+</li>
+<li>
+<p>Extract entities from text with the Natural Language API</p>
+</li>
+</ul>
+<h3>Finish your quest</h3>
+<p>This self-paced lab is part of the <a href="https://google.qwiklabs.com/quests/32" target="_blank">Machine Learning APIs</a> and <a href="https://google.qwiklabs.com/quests/85" target="_blank">Intro to ML: Image Processing</a> quests. A quest is a series of related labs that form a learning path. Completing a quest earns you a badge to recognize your achievement. You can make your badge or badges public and link to them in your online resume or social media account. Enroll in any quest that contains this lab and get immediate completion credit.  Refer to the <a href="http://cloudskillsboost.google/catalog" target="_blank">Google Cloud Skills Boost catalog</a> for all available quests.</p>
+<h3>Take your next lab</h3>
+<p>Try out another lab on Machine Learning APIs, like:</p>
+<ul>
+<li>
+<p><a href="https://google.qwiklabs.com/catalog_lab/1086" target="_blank">Classify Text into Categories using the Natural Language API</a></p>
+</li>
+<li>
+<p><a href="https://google.qwiklabs.com/catalog_lab/1041" target="_blank">Awwvision: Cloud Vision API from a Kubernetes Cluster</a>.</p>
+</li>
+</ul>
+<h4>Next steps / learn more</h4>
+<ul>
+<li>Learn more from the tutorials and docs for <a href="https://cloud.google.com/vision/docs/detecting-text" target="_blank">Vision</a>,  <a href="https://cloud.google.com/translate/docs/samples" target="_blank">Translation</a>, and  <a href="https://cloud.google.com/natural-language/docs/samples" target="_blank">Natural Language</a>
+</li>
+</ul>
+<h3>Google Cloud training and certification</h3>
+<p>...helps you make the most of Google Cloud technologies. <a href="https://cloud.google.com/training/courses" target="_blank">Our classes</a> include technical skills and best practices to help you get up to speed quickly and continue your learning journey. We offer fundamental to advanced level training, with on-demand, live, and virtual options to suit your busy schedule. <a href="https://cloud.google.com/certification/" target="_blank">Certifications</a> help you validate and prove your skill and expertise in Google Cloud technologies.</p>
+<p><strong>Manual Last Updated May 10, 2023</strong></p>
+<p><strong>Lab Last Tested December 27, 2022</strong></p>
+<p>Copyright 2023 Google LLC All rights reserved. Google and the Google logo are trademarks of Google LLC. All other company and product names may be trademarks of the respective companies with which they are associated.</p>
+
+</div>
+</div>
+
+
+<div class="lab-content__end-lab-button js-end-lab-button-container hidden">
+<ql-lab-control-button class="js-end-lab-button" running=""><template shadowrootmode="open"><!---->
+      <ql-button><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-button mdc-button--unelevated gm-button-fill gm-text-label-button ql-button negative " aria-expanded="true" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$--><slot></slot>
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        <!--?lit$89829076$-->End Lab
+      </ql-button>
+    </template></ql-lab-control-button>
+</div>
+<!-- / TODO: Move recommendations into the end lab modal -->
+</ql-drawer-content>
+<ql-drawer end="" id="outline-drawer" open="" slot="drawer" width="320" aria-hidden="false" role="region" mode="side" style="width: 320px; visibility: visible;"><template shadowrootmode="open"><!----><slot></slot></template>
+<div aria-label="Lab Table of Contents" role="navigation">
+
+</div>
+<ul class="lab-content__outline js-lab-content-outline">
+<li><a href="https://www.cloudskillsboost.google/games/4422/labs/28604#step1" class="">GSP075</a></li><li><a href="https://www.cloudskillsboost.google/games/4422/labs/28604#step2" class="">Overview</a></li><li><a href="https://www.cloudskillsboost.google/games/4422/labs/28604#step3" class="">Setup and requirements</a></li><li><a href="https://www.cloudskillsboost.google/games/4422/labs/28604#step4" class="">Task 1. Create an API key</a></li><li><a href="https://www.cloudskillsboost.google/games/4422/labs/28604#step5" class="is-active" aria-current="step">Task 2. Upload an image to a Cloud Storage bucket</a></li><li><a href="https://www.cloudskillsboost.google/games/4422/labs/28604#step6">Task 3. Create your Cloud Vision API request</a></li><li><a href="https://www.cloudskillsboost.google/games/4422/labs/28604#step7">Task 4. Call the text detection method</a></li><li><a href="https://www.cloudskillsboost.google/games/4422/labs/28604#step8">Task 5. Send text from the image to the Translation API</a></li><li><a href="https://www.cloudskillsboost.google/games/4422/labs/28604#step9">Task 6. Analyzing the image's text with the Natural Language API</a></li><li><a href="https://www.cloudskillsboost.google/games/4422/labs/28604#step10">Congratulations!</a></li>
+</ul></ql-drawer>
+</ql-drawer-container>
+</ql-drawer-content>
+</ql-drawer-container>
+
+
+<ql-leaderboard-container class="js-lab-leaderboard" gameid="4422" leaderboardtype="panel" maxrows="10" players="[{&quot;id&quot;:744148,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/yInZcghwRfEwjnbRWWgtwTqyXt4i6qEEm5b0aMqkCiw%3D&quot;,&quot;username&quot;:&quot;Krissa&quot;,&quot;score&quot;:18828451,&quot;team&quot;:null,&quot;place&quot;:4583,&quot;currentPlayer&quot;:true},{&quot;id&quot;:732406,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/QgVlNN%2F2M%2Fbbx5Q6PHDF8RA6iFtyXx5xOnpDLr1ID%2BE%3D&quot;,&quot;username&quot;:&quot;QiKaiSi&quot;,&quot;score&quot;:7539711182,&quot;team&quot;:null,&quot;place&quot;:1,&quot;currentPlayer&quot;:false},{&quot;id&quot;:740008,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/ZDCnsGDsE%2BXHQJfMu6yCge7h4k5t4pshDc2gKDH32Do%3D&quot;,&quot;username&quot;:&quot;linkedin.com/in/ahansda&quot;,&quot;score&quot;:7327782266,&quot;team&quot;:null,&quot;place&quot;:2,&quot;currentPlayer&quot;:false},{&quot;id&quot;:742627,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/8e7PLGC1sFkPn89VwDjJd%2Bmic2Lf%2FlzhnKnwu90%2BYmk%3D&quot;,&quot;username&quot;:&quot;Coming Soon....&quot;,&quot;score&quot;:5867982059,&quot;team&quot;:null,&quot;place&quot;:3,&quot;currentPlayer&quot;:false},{&quot;id&quot;:730091,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/tTARhulLOR2WlLlqIbN7lroQo4Df6XhMkBN4YQID1RI%3D&quot;,&quot;username&quot;:&quot;Sankalp Srivastava&quot;,&quot;score&quot;:4922313058,&quot;team&quot;:null,&quot;place&quot;:4,&quot;currentPlayer&quot;:false},{&quot;id&quot;:744232,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/YXlKWOSrKM0cBJrX31cI1gTP%2FGtPPPlWSPDHT%2BTcn5s%3D&quot;,&quot;username&quot;:&quot;Player 975778&quot;,&quot;score&quot;:3931488050,&quot;team&quot;:null,&quot;place&quot;:5,&quot;currentPlayer&quot;:false},{&quot;id&quot;:734156,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/Tt%2FhF4CGHxq7XOCJ9oJCxp%2BC46cWmuJOFsUo03xU9p4%3D&quot;,&quot;username&quot;:&quot;puneetred&quot;,&quot;score&quot;:3369000169,&quot;team&quot;:null,&quot;place&quot;:6,&quot;currentPlayer&quot;:false},{&quot;id&quot;:732347,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/6j73xeq%2FF6gFbUEw95wd%2BxKVIFOFmAxdRcXf4Z9tmDM%3D&quot;,&quot;username&quot;:&quot;Cypher&quot;,&quot;score&quot;:3289284338,&quot;team&quot;:null,&quot;place&quot;:7,&quot;currentPlayer&quot;:false},{&quot;id&quot;:740233,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/0yxkVav2jTwr%2F3HK6zVJkLYHrUuHYmJgfGcaib2qv9w%3D&quot;,&quot;username&quot;:&quot;Dhanush&quot;,&quot;score&quot;:3105877694,&quot;team&quot;:null,&quot;place&quot;:8,&quot;currentPlayer&quot;:false},{&quot;id&quot;:730863,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/YXlKWOSrKM0cBJrX31cI1gTP%2FGtPPPlWSPDHT%2BTcn5s%3D&quot;,&quot;username&quot;:&quot;suhast&quot;,&quot;score&quot;:2886599600,&quot;team&quot;:null,&quot;place&quot;:9,&quot;currentPlayer&quot;:false},{&quot;id&quot;:732889,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/mJtXHDKUW6yUu89E7bBSKlPnewwVLU%2BgI6QsEylcff8%3D&quot;,&quot;username&quot;:&quot;Kunj&quot;,&quot;score&quot;:2679814611,&quot;team&quot;:null,&quot;place&quot;:10,&quot;currentPlayer&quot;:false},{&quot;id&quot;:731338,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/mJtXHDKUW6yUu89E7bBSKlPnewwVLU%2BgI6QsEylcff8%3D&quot;,&quot;username&quot;:&quot;Player 73277&quot;,&quot;score&quot;:2677828106,&quot;team&quot;:null,&quot;place&quot;:11,&quot;currentPlayer&quot;:false},{&quot;id&quot;:735419,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/yInZcghwRfEwjnbRWWgtwTqyXt4i6qEEm5b0aMqkCiw%3D&quot;,&quot;username&quot;:&quot;Prathmesh&quot;,&quot;score&quot;:2569421485,&quot;team&quot;:null,&quot;place&quot;:12,&quot;currentPlayer&quot;:false},{&quot;id&quot;:745536,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/Tbfyd24bqg54OcGotbd5Y4na4bNNfiKZcELGcPGOKWI%3D&quot;,&quot;username&quot;:&quot;itsAnubhav&quot;,&quot;score&quot;:2562431486,&quot;team&quot;:null,&quot;place&quot;:13,&quot;currentPlayer&quot;:false},{&quot;id&quot;:731658,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/BgA4yZz8rveXbvT4e3dB2cqdLZWv1biYqe8fdBg1QJ8%3D&quot;,&quot;username&quot;:&quot;rithvikv05&quot;,&quot;score&quot;:2475894872,&quot;team&quot;:null,&quot;place&quot;:14,&quot;currentPlayer&quot;:false},{&quot;id&quot;:737289,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/TP%2FFnx1Ho%2B4cMeQ771ze9rmeqZBCG9DRFPC5q7UXJ0o%3D&quot;,&quot;username&quot;:&quot;Devansh Bansal&quot;,&quot;score&quot;:2466014203,&quot;team&quot;:null,&quot;place&quot;:15,&quot;currentPlayer&quot;:false},{&quot;id&quot;:737300,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/e6AkQ9UOgLfx96HE2lu%2FSYdNUnQwQmau2%2BZs7X6uFWU%3D&quot;,&quot;username&quot;:&quot;Harish&quot;,&quot;score&quot;:2463477644,&quot;team&quot;:null,&quot;place&quot;:16,&quot;currentPlayer&quot;:false},{&quot;id&quot;:743902,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/J36sO%2BQSldGuzdchSznMiDjQC8CUtouoP%2Bj2Crzv8Rw%3D&quot;,&quot;username&quot;:&quot;CalamityStriker&quot;,&quot;score&quot;:2458796897,&quot;team&quot;:null,&quot;place&quot;:17,&quot;currentPlayer&quot;:false},{&quot;id&quot;:741770,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/SO0MXpJgBSkdbthzh6J8Nlzhs5TE4v8kQCQHL1byoDs%3D&quot;,&quot;username&quot;:&quot;Matin Imam&quot;,&quot;score&quot;:2427465590,&quot;team&quot;:null,&quot;place&quot;:18,&quot;currentPlayer&quot;:false},{&quot;id&quot;:743093,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/0Yg6%2F9YemplTYlXmoRkn%2FboB41BK8x9KjOkpEKEvMUM%3D&quot;,&quot;username&quot;:&quot;Gourav&quot;,&quot;score&quot;:2384865508,&quot;team&quot;:null,&quot;place&quot;:19,&quot;currentPlayer&quot;:false},{&quot;id&quot;:730665,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/QPjh27TNKTWw0mKsW2n05z0DqLnfb9O3ZGZQhXvNwCE%3D&quot;,&quot;username&quot;:&quot;Sagar07&quot;,&quot;score&quot;:2373393053,&quot;team&quot;:null,&quot;place&quot;:20,&quot;currentPlayer&quot;:false},{&quot;id&quot;:746428,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/yInZcghwRfEwjnbRWWgtwTqyXt4i6qEEm5b0aMqkCiw%3D&quot;,&quot;username&quot;:&quot;Akash&quot;,&quot;score&quot;:2363330489,&quot;team&quot;:null,&quot;place&quot;:21,&quot;currentPlayer&quot;:false},{&quot;id&quot;:731855,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/hbSe9JokWTNXW0rSPga7g%2FKLaGM9qtruHFTtIjsOg9M%3D&quot;,&quot;username&quot;:&quot;Matin Imam&quot;,&quot;score&quot;:2356093093,&quot;team&quot;:null,&quot;place&quot;:22,&quot;currentPlayer&quot;:false},{&quot;id&quot;:741633,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/J36sO%2BQSldGuzdchSznMiDjQC8CUtouoP%2Bj2Crzv8Rw%3D&quot;,&quot;username&quot;:&quot;Player 750877&quot;,&quot;score&quot;:2340077748,&quot;team&quot;:null,&quot;place&quot;:23,&quot;currentPlayer&quot;:false},{&quot;id&quot;:732501,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/yInZcghwRfEwjnbRWWgtwTqyXt4i6qEEm5b0aMqkCiw%3D&quot;,&quot;username&quot;:&quot;Ananya Pati&quot;,&quot;score&quot;:2336800704,&quot;team&quot;:null,&quot;place&quot;:24,&quot;currentPlayer&quot;:false},{&quot;id&quot;:731987,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/yInZcghwRfEwjnbRWWgtwTqyXt4i6qEEm5b0aMqkCiw%3D&quot;,&quot;username&quot;:&quot;Player 169098&quot;,&quot;score&quot;:2336668305,&quot;team&quot;:null,&quot;place&quot;:25,&quot;currentPlayer&quot;:false},{&quot;id&quot;:733606,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/TP%2FFnx1Ho%2B4cMeQ771ze9rmeqZBCG9DRFPC5q7UXJ0o%3D&quot;,&quot;username&quot;:&quot;Manmeet Kaur&quot;,&quot;score&quot;:19034033,&quot;team&quot;:null,&quot;place&quot;:4573,&quot;currentPlayer&quot;:false},{&quot;id&quot;:739118,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/YXlKWOSrKM0cBJrX31cI1gTP%2FGtPPPlWSPDHT%2BTcn5s%3D&quot;,&quot;username&quot;:&quot;Player 724953&quot;,&quot;score&quot;:19034033,&quot;team&quot;:null,&quot;place&quot;:4574,&quot;currentPlayer&quot;:false},{&quot;id&quot;:743806,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/TP%2FFnx1Ho%2B4cMeQ771ze9rmeqZBCG9DRFPC5q7UXJ0o%3D&quot;,&quot;username&quot;:&quot;Aarushi Sangal&quot;,&quot;score&quot;:19007391,&quot;team&quot;:null,&quot;place&quot;:4575,&quot;currentPlayer&quot;:false},{&quot;id&quot;:730789,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/yInZcghwRfEwjnbRWWgtwTqyXt4i6qEEm5b0aMqkCiw%3D&quot;,&quot;username&quot;:&quot;Player 899739&quot;,&quot;score&quot;:18987341,&quot;team&quot;:null,&quot;place&quot;:4576,&quot;currentPlayer&quot;:false},{&quot;id&quot;:736013,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/2oLw2A%2BhTnXsBMRAzpjjfflrO0ICtBNOrKDwo2HKaHY%3D&quot;,&quot;username&quot;:&quot;Aditya Patwa&quot;,&quot;score&quot;:18949640,&quot;team&quot;:null,&quot;place&quot;:4577,&quot;currentPlayer&quot;:false},{&quot;id&quot;:746820,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/BtHEpcuXFF9HwogjtdTBpCZcusq0CFGLCnySL%2B6aOn0%3D&quot;,&quot;username&quot;:&quot;Player 413303&quot;,&quot;score&quot;:18875536,&quot;team&quot;:null,&quot;place&quot;:4578,&quot;currentPlayer&quot;:false},{&quot;id&quot;:743015,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/yInZcghwRfEwjnbRWWgtwTqyXt4i6qEEm5b0aMqkCiw%3D&quot;,&quot;username&quot;:&quot;David Akah&quot;,&quot;score&quot;:18867924,&quot;team&quot;:null,&quot;place&quot;:4579,&quot;currentPlayer&quot;:false},{&quot;id&quot;:734169,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/J36sO%2BQSldGuzdchSznMiDjQC8CUtouoP%2Bj2Crzv8Rw%3D&quot;,&quot;username&quot;:&quot;Himanshi&quot;,&quot;score&quot;:18866333,&quot;team&quot;:null,&quot;place&quot;:4580,&quot;currentPlayer&quot;:false},{&quot;id&quot;:750394,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/Tbfyd24bqg54OcGotbd5Y4na4bNNfiKZcELGcPGOKWI%3D&quot;,&quot;username&quot;:&quot;madhuri&quot;,&quot;score&quot;:18838801,&quot;team&quot;:null,&quot;place&quot;:4581,&quot;currentPlayer&quot;:false},{&quot;id&quot;:741723,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/BtHEpcuXFF9HwogjtdTBpCZcusq0CFGLCnySL%2B6aOn0%3D&quot;,&quot;username&quot;:&quot;Player 640910&quot;,&quot;score&quot;:18828451,&quot;team&quot;:null,&quot;place&quot;:4582,&quot;currentPlayer&quot;:false},{&quot;id&quot;:732617,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/mJtXHDKUW6yUu89E7bBSKlPnewwVLU%2BgI6QsEylcff8%3D&quot;,&quot;username&quot;:&quot;Siri gangam&quot;,&quot;score&quot;:18820512,&quot;team&quot;:null,&quot;place&quot;:4584,&quot;currentPlayer&quot;:false},{&quot;id&quot;:745453,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/Tbfyd24bqg54OcGotbd5Y4na4bNNfiKZcELGcPGOKWI%3D&quot;,&quot;username&quot;:&quot;Mansi&quot;,&quot;score&quot;:18789144,&quot;team&quot;:null,&quot;place&quot;:4585,&quot;currentPlayer&quot;:false},{&quot;id&quot;:750225,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/BtHEpcuXFF9HwogjtdTBpCZcusq0CFGLCnySL%2B6aOn0%3D&quot;,&quot;username&quot;:&quot;Player 788593&quot;,&quot;score&quot;:18691588,&quot;team&quot;:null,&quot;place&quot;:4586,&quot;currentPlayer&quot;:false},{&quot;id&quot;:730185,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/3sDP%2BBSj2k78Kfm0EpY%2Fa2hTdGxl%2Byg8COJq47S%2Fpc0%3D&quot;,&quot;username&quot;:&quot;Artemis&quot;,&quot;score&quot;:18672199,&quot;team&quot;:null,&quot;place&quot;:4587,&quot;currentPlayer&quot;:false},{&quot;id&quot;:738861,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/BtHEpcuXFF9HwogjtdTBpCZcusq0CFGLCnySL%2B6aOn0%3D&quot;,&quot;username&quot;:&quot;Dipnarayan Sen&quot;,&quot;score&quot;:18633540,&quot;team&quot;:null,&quot;place&quot;:4588,&quot;currentPlayer&quot;:false},{&quot;id&quot;:734959,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/0vnhdoH3O4e63JN1lYt2sleQzAtx1d8wDbnyZZff7Bg%3D&quot;,&quot;username&quot;:&quot;RAHUL KUMAR&quot;,&quot;score&quot;:18595041,&quot;team&quot;:null,&quot;place&quot;:4589,&quot;currentPlayer&quot;:false},{&quot;id&quot;:745887,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/z9XjfXJ1CGqjZLmjiBq44A2BqO5K9Z9FB1WGWARCCv4%3D&quot;,&quot;username&quot;:&quot;Shreya Bangale&quot;,&quot;score&quot;:18595041,&quot;team&quot;:null,&quot;place&quot;:4590,&quot;currentPlayer&quot;:false},{&quot;id&quot;:732859,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/sI0kBs%2FttS%2BdNMYNbLnWgbNxQbadNybgPkR0sPHei4A%3D&quot;,&quot;username&quot;:&quot;prudvi meher&quot;,&quot;score&quot;:18587412,&quot;team&quot;:null,&quot;place&quot;:4591,&quot;currentPlayer&quot;:false},{&quot;id&quot;:739756,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/kc4r88vGQ5UmHW8JzEQQY1YN1K7UeZEDSJokCIwNAc0%3D&quot;,&quot;username&quot;:&quot;Player 137133&quot;,&quot;score&quot;:18537590,&quot;team&quot;:null,&quot;place&quot;:4592,&quot;currentPlayer&quot;:false},{&quot;id&quot;:733679,&quot;avatarSrc&quot;:&quot;https://cdn.qwiklabs.com/TP%2FFnx1Ho%2B4cMeQ771ze9rmeqZBCG9DRFPC5q7UXJ0o%3D&quot;,&quot;username&quot;:&quot;Ketan Baitule&quot;,&quot;score&quot;:18518518,&quot;team&quot;:null,&quot;place&quot;:4593,&quot;currentPlayer&quot;:false}]"><template shadowrootmode="open"><!---->
+      <ql-leaderboard-panel><template shadowrootmode="open"><!---->
+      <div class="panel">
+        <!--?lit$89829076$--><!---->
+      <ql-leaderboard-row compact=""><template shadowrootmode="open"><!---->
+      <div class=" row compact ">
+        <span class="place"><!--?lit$89829076$-->1.</span>
+
+        <div class="avatar" style="background-image: url(&quot;https://cdn.qwiklabs.com/QgVlNN%2F2M%2Fbbx5Q6PHDF8RA6iFtyXx5xOnpDLr1ID%2BE%3D&quot;);"></div>
+
+        <div class="info">
+          <div class="username">
+            <!--?lit$89829076$-->QiKaiSi <!--?lit$89829076$-->
+          </div>
+          <div class="team">
+            <!--?lit$89829076$-->
+          </div>
+          <!--?lit$89829076$-->
+      <div class="score">
+        <!--?lit$89829076$-->7,539,711,182
+      </div>
+    
+        </div>
+      </div>
+    </template>
+      </ql-leaderboard-row>
+    <!----><!---->
+      <ql-leaderboard-row compact=""><template shadowrootmode="open"><!---->
+      <div class=" row compact ">
+        <span class="place"><!--?lit$89829076$-->2.</span>
+
+        <div class="avatar" style="background-image: url(&quot;https://cdn.qwiklabs.com/ZDCnsGDsE%2BXHQJfMu6yCge7h4k5t4pshDc2gKDH32Do%3D&quot;);"></div>
+
+        <div class="info">
+          <div class="username">
+            <!--?lit$89829076$-->linkedin.com/in/ahansda <!--?lit$89829076$-->
+          </div>
+          <div class="team">
+            <!--?lit$89829076$-->
+          </div>
+          <!--?lit$89829076$-->
+      <div class="score">
+        <!--?lit$89829076$-->7,327,782,266
+      </div>
+    
+        </div>
+      </div>
+    </template>
+      </ql-leaderboard-row>
+    <!----><!---->
+      <ql-leaderboard-row compact=""><template shadowrootmode="open"><!---->
+      <div class=" row compact ">
+        <span class="place"><!--?lit$89829076$-->3.</span>
+
+        <div class="avatar" style="background-image: url(&quot;https://cdn.qwiklabs.com/8e7PLGC1sFkPn89VwDjJd%2Bmic2Lf%2FlzhnKnwu90%2BYmk%3D&quot;);"></div>
+
+        <div class="info">
+          <div class="username">
+            <!--?lit$89829076$-->Coming Soon.... <!--?lit$89829076$-->
+          </div>
+          <div class="team">
+            <!--?lit$89829076$-->
+          </div>
+          <!--?lit$89829076$-->
+      <div class="score">
+        <!--?lit$89829076$-->5,867,982,059
+      </div>
+    
+        </div>
+      </div>
+    </template>
+      </ql-leaderboard-row>
+    <!----><!---->
+      <ql-leaderboard-row compact=""><template shadowrootmode="open"><!---->
+      <div class=" row compact ">
+        <span class="place"><!--?lit$89829076$-->4.</span>
+
+        <div class="avatar" style="background-image: url(&quot;https://cdn.qwiklabs.com/tTARhulLOR2WlLlqIbN7lroQo4Df6XhMkBN4YQID1RI%3D&quot;);"></div>
+
+        <div class="info">
+          <div class="username">
+            <!--?lit$89829076$-->Sankalp Srivastava <!--?lit$89829076$-->
+          </div>
+          <div class="team">
+            <!--?lit$89829076$-->
+          </div>
+          <!--?lit$89829076$-->
+      <div class="score">
+        <!--?lit$89829076$-->4,922,313,058
+      </div>
+    
+        </div>
+      </div>
+    </template>
+      </ql-leaderboard-row>
+    <!----><!---->
+      <ql-leaderboard-row compact=""><template shadowrootmode="open"><!---->
+      <div class=" row compact ">
+        <span class="place"><!--?lit$89829076$-->5.</span>
+
+        <div class="avatar" style="background-image: url(&quot;https://cdn.qwiklabs.com/YXlKWOSrKM0cBJrX31cI1gTP%2FGtPPPlWSPDHT%2BTcn5s%3D&quot;);"></div>
+
+        <div class="info">
+          <div class="username">
+            <!--?lit$89829076$-->Player 975778 <!--?lit$89829076$-->
+          </div>
+          <div class="team">
+            <!--?lit$89829076$-->
+          </div>
+          <!--?lit$89829076$-->
+      <div class="score">
+        <!--?lit$89829076$-->3,931,488,050
+      </div>
+    
+        </div>
+      </div>
+    </template>
+      </ql-leaderboard-row>
+    <!----><!---->
+      <ql-leaderboard-row compact=""><template shadowrootmode="open"><!---->
+      <div class=" row compact ">
+        <span class="place"><!--?lit$89829076$-->6.</span>
+
+        <div class="avatar" style="background-image: url(&quot;https://cdn.qwiklabs.com/Tt%2FhF4CGHxq7XOCJ9oJCxp%2BC46cWmuJOFsUo03xU9p4%3D&quot;);"></div>
+
+        <div class="info">
+          <div class="username">
+            <!--?lit$89829076$-->puneetred <!--?lit$89829076$-->
+          </div>
+          <div class="team">
+            <!--?lit$89829076$-->
+          </div>
+          <!--?lit$89829076$-->
+      <div class="score">
+        <!--?lit$89829076$-->3,369,000,169
+      </div>
+    
+        </div>
+      </div>
+    </template>
+      </ql-leaderboard-row>
+    <!----><!---->
+      <ql-leaderboard-row compact=""><template shadowrootmode="open"><!---->
+      <div class=" row compact ">
+        <span class="place"><!--?lit$89829076$-->7.</span>
+
+        <div class="avatar" style="background-image: url(&quot;https://cdn.qwiklabs.com/6j73xeq%2FF6gFbUEw95wd%2BxKVIFOFmAxdRcXf4Z9tmDM%3D&quot;);"></div>
+
+        <div class="info">
+          <div class="username">
+            <!--?lit$89829076$-->Cypher <!--?lit$89829076$-->
+          </div>
+          <div class="team">
+            <!--?lit$89829076$-->
+          </div>
+          <!--?lit$89829076$-->
+      <div class="score">
+        <!--?lit$89829076$-->3,289,284,338
+      </div>
+    
+        </div>
+      </div>
+    </template>
+      </ql-leaderboard-row>
+    <!----><!---->
+      <ql-leaderboard-row compact=""><template shadowrootmode="open"><!---->
+      <div class=" row compact ">
+        <span class="place"><!--?lit$89829076$-->8.</span>
+
+        <div class="avatar" style="background-image: url(&quot;https://cdn.qwiklabs.com/0yxkVav2jTwr%2F3HK6zVJkLYHrUuHYmJgfGcaib2qv9w%3D&quot;);"></div>
+
+        <div class="info">
+          <div class="username">
+            <!--?lit$89829076$-->Dhanush <!--?lit$89829076$-->
+          </div>
+          <div class="team">
+            <!--?lit$89829076$-->
+          </div>
+          <!--?lit$89829076$-->
+      <div class="score">
+        <!--?lit$89829076$-->3,105,877,694
+      </div>
+    
+        </div>
+      </div>
+    </template>
+      </ql-leaderboard-row>
+    <!----><!---->
+      <ql-leaderboard-row compact=""><template shadowrootmode="open"><!---->
+      <div class=" row compact ">
+        <span class="place"><!--?lit$89829076$-->9.</span>
+
+        <div class="avatar" style="background-image: url(&quot;https://cdn.qwiklabs.com/YXlKWOSrKM0cBJrX31cI1gTP%2FGtPPPlWSPDHT%2BTcn5s%3D&quot;);"></div>
+
+        <div class="info">
+          <div class="username">
+            <!--?lit$89829076$-->suhast <!--?lit$89829076$-->
+          </div>
+          <div class="team">
+            <!--?lit$89829076$-->
+          </div>
+          <!--?lit$89829076$-->
+      <div class="score">
+        <!--?lit$89829076$-->2,886,599,600
+      </div>
+    
+        </div>
+      </div>
+    </template>
+      </ql-leaderboard-row>
+    <!----><!---->
+      <ql-leaderboard-row compact=""><template shadowrootmode="open"><!---->
+      <div class=" row compact ">
+        <span class="place"><!--?lit$89829076$-->10.</span>
+
+        <div class="avatar" style="background-image: url(&quot;https://cdn.qwiklabs.com/mJtXHDKUW6yUu89E7bBSKlPnewwVLU%2BgI6QsEylcff8%3D&quot;);"></div>
+
+        <div class="info">
+          <div class="username">
+            <!--?lit$89829076$-->Kunj <!--?lit$89829076$-->
+          </div>
+          <div class="team">
+            <!--?lit$89829076$-->
+          </div>
+          <!--?lit$89829076$-->
+      <div class="score">
+        <!--?lit$89829076$-->2,679,814,611
+      </div>
+    
+        </div>
+      </div>
+    </template>
+      </ql-leaderboard-row>
+    <!----><!---->
+      <ql-leaderboard-row compact=""><template shadowrootmode="open"><!---->
+      <div class=" row current-player compact ">
+        <span class="place"><!--?lit$89829076$-->4544.</span>
+
+        <div class="avatar" style="background-image: url(&quot;https://cdn.qwiklabs.com/yInZcghwRfEwjnbRWWgtwTqyXt4i6qEEm5b0aMqkCiw%3D&quot;);"></div>
+
+        <div class="info">
+          <div class="username">
+            <!--?lit$89829076$-->Krissa <!--?lit$89829076$-->(me)
+          </div>
+          <div class="team">
+            <!--?lit$89829076$-->
+          </div>
+          <!--?lit$89829076$-->
+      <div class="score">
+        <!--?lit$89829076$-->21,828,451
+      </div>
+    
+        </div>
+      </div>
+    </template>
+      </ql-leaderboard-row>
+    <!---->
+      </div>
+    </template>
+      </ql-leaderboard-panel>
+    </template></ql-leaderboard-container>
+
+</div>
+</main>
+
+<span class="hidden" id="flash-sibling-before"></span>
+<ql-snackbar aria-live="polite" role="alert"><template shadowrootmode="open"><!---->
+      <div class=" snackbar " style="left: 0px;">
+        <slot></slot>
+      </div>
+    </template></ql-snackbar>
+
+
+<ql-dialog headline="Score Details" icon="task_alt" id="jupyter-feedback-modal" tabindex="-1" aria-hidden="true"><template shadowrootmode="open"><!---->
+      <div class=" dialog-wrapper ">
+        <ql-card elevation="3" role="dialog" aria-labelledby="title" aria-modal="true"><template shadowrootmode="open"><!---->
+      <div class=" card ">
+        <slot></slot>
+      </div>
+    </template>
+          <!--?lit$89829076$-->
+      <div class=" header centered ">
+        <!--?lit$89829076$-->
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$89829076$-->task_alt</slot>
+      </i>
+      <!--?lit$89829076$--><!--?-->
+    </template></ql-icon>
+        <h1 id="title"><!--?lit$89829076$--><!--?lit$89829076$-->Score Details<!--?--></h1>
+      </div>
+      <div class="body">
+        <slot></slot>
+      </div>
+      <div class=" actions ">
+        <ql-button text="" class="dismissal-button" label="OK"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-button gm-button-text ql-button default " aria-label="OK" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$-->OK
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        </ql-button>
+        <slot name="action"></slot>
+      </div>
+    
+        </ql-card>
+        <!--?lit$89829076$-->
+        <div class=" overlay "></div>
+      </div>
+    </template>
+<iframe id="jupyter-feedback-frame" title="Jupyter Feedback" src="./sign_files/saved_resource(3).html"></iframe>
+</ql-dialog>
+
+<div class="modal fade" id="lab-details-modal">
+<div class="modal-container">
+<div class="modal-content mdl-shadow--24dp">
+<div class="modal-body">
+<p class="l-mbm">
+Use the Cloud Vision, Natural Language, and Translation APIs to capture text strings from images, recognize characters, and analyze and translate the text strings into other languages.
+</p>
+<p>
+This lab is included in these quests:
+<a href="https://www.cloudskillsboost.google/quests/136">Integrate with Machine Learning APIs</a>, <a href="https://www.cloudskillsboost.google/quests/85">Intro to ML: Image Processing</a>, <a href="https://www.cloudskillsboost.google/quests/308">Analyze Images with the Cloud Vision API</a>.
+If you complete this lab you'll receive credit for it when you enroll in one of these quests.
+</p>
+<p class="small-label l-mbs">
+<strong>
+Duration:
+</strong>
+0m setup
+·
+50m access
+·
+50m completion
+</p>
+<p class="small-label l-mbs">
+<strong>AWS Region:</strong>
+[] <strong></strong>
+</p>
+<p class="small-label l-mbs">
+<span><strong>Levels: </strong>intermediate</span>
+</p>
+<p class="small-label">
+<strong>
+Permalink:
+</strong>
+<a href="https://www.cloudskillsboost.google/catalog_lab/1111">https://www.cloudskillsboost.google/catalog_lab/1111</a>
+</p>
+</div>
+<div class="modal-actions">
+<a class="button button--text" data-dismiss="modal">
+Got It
+</a>
+</div>
+
+
+</div>
+</div>
+<iframe class="l-ie-iframe-fix" tabindex="-1" title="modal" src="./sign_files/saved_resource(4).html"></iframe>
+</div>
+<ql-dialog headline="How satisfied are you with this lab?&lt;span aria-hidden=&quot;true&quot;&gt;*&lt;/span&gt;" id="lab-review-dialog" aria-hidden="true" tabindex="-1"><template shadowrootmode="open"><!---->
+      <div class="dialog-wrapper">
+        <ql-card elevation="3" role="dialog" aria-labelledby="title" aria-modal="true"><template shadowrootmode="open"><!---->
+      <div class=" card ">
+        <slot></slot>
+      </div>
+    </template>
+          <!--?lit$89829076$-->
+      <div class=" header ">
+        <!--?lit$89829076$-->
+        <h1 id="title"><!--?lit$89829076$--><!--?lit$89829076$-->How satisfied are you with this lab?<span aria-hidden="true">*</span><!--?--></h1>
+      </div>
+      <div class="body">
+        <slot></slot>
+      </div>
+      <div class="actions multiple">
+        <ql-button text="" class="dismissal-button" label="Cancel"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-button gm-button-text ql-button default " aria-label="Cancel" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$-->Cancel
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        </ql-button>
+        <slot name="action"></slot>
+      </div>
+    
+        </ql-card>
+        <!--?lit$89829076$-->
+        <div class=" overlay "></div>
+      </div>
+    </template>
+<form class="simple_form js-lab-review-form" id="new_lab_review" action="https://www.cloudskillsboost.google/lab_reviews" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓" autocomplete="off"><div aria-labelledby="lab-review-dialog" aria-required="true" aria-valuemax="5" aria-valuemin="0" aria-valuenow="0" class="rateit js-rateit" data-rateit-max="5" data-rateit-min="0" data-rateit-resetable="false" data-rateit-step="1" data-rateit-value="0" id="lab-review-rateit" role="slider" tabindex="0"><div class="rateit-reset" style="display: none;"></div><div class="rateit-range" style="width: 80px; height: 16px;"><div class="rateit-selected" style="height: 16px; width: 0px;"></div><div class="rateit-hover" style="height:16px"></div></div></div>
+<div class="l-mtm">
+
+<div class="control-group hidden lab_review_user_id"><div class="controls"><input class="hidden" autocomplete="off" type="hidden" value="12517500" name="lab_review[user_id]" id="lab_review_user_id"></div></div>
+<div class="control-group hidden lab_review_classroom_id"><div class="controls"><input class="hidden" autocomplete="off" type="hidden" name="lab_review[classroom_id]" id="lab_review_classroom_id"></div></div>
+<div class="control-group hidden lab_review_lab_id"><div class="controls"><input class="hidden" autocomplete="off" type="hidden" value="1111" name="lab_review[lab_id]" id="lab_review_lab_id"></div></div>
+<div class="control-group hidden lab_review_focus_id"><div class="controls"><input class="hidden" autocomplete="off" type="hidden" name="lab_review[focus_id]" id="lab_review_focus_id"></div></div>
+<div class="control-group hidden lab_review_rating"><div class="controls"><input class="hidden js-rating-input" autocomplete="off" type="hidden" name="lab_review[rating]" id="lab_review_rating"></div></div>
+<div class="control-group text optional lab_review_comment"><label class="text optional control-label" for="lab_review_comment">Additional Comments</label><div class="controls"><textarea class="text optional" name="lab_review[comment]" id="lab_review_comment"></textarea></div></div>
+</div>
+</form><ql-button disabled="" id="submit" label="Submit" slot="action" text=""><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="true">
+        <!--?lit$89829076$-->
+        <button type="button" disabled="" class=" mdc-button gm-button-text ql-button default " aria-label="Submit" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$-->Submit
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template></ql-button>
+</ql-dialog>
+
+<ql-dialog headline="All done? If you end this lab, you will lose all your work. You may not be able to restart the lab if there is a quota limit. Are you sure you want to end this lab?" icon="error_outline" id="js-lab-are-you-sure-dialog" tabindex="-1" aria-hidden="true"><template shadowrootmode="open"><!---->
+      <div class=" dialog-wrapper ">
+        <ql-card elevation="3" role="dialog" aria-labelledby="title" aria-modal="true"><template shadowrootmode="open"><!---->
+      <div class=" card ">
+        <slot></slot>
+      </div>
+    </template>
+          <!--?lit$89829076$-->
+      <div class=" header centered ">
+        <!--?lit$89829076$-->
+        <ql-icon><template shadowrootmode="open"><!---->
+      <i class="google-material-icons" aria-hidden="true" style="font-size: inherit;">
+        <slot><!--?lit$89829076$-->error_outline</slot>
+      </i>
+      <!--?lit$89829076$--><!--?-->
+    </template></ql-icon>
+        <h1 id="title"><!--?lit$89829076$--><!--?lit$89829076$-->All done? If you end this lab, you will lose all your work. You may not be able to restart the lab if there is a quota limit. Are you sure you want to end this lab?<!--?--></h1>
+      </div>
+      <div class="body">
+        <slot></slot>
+      </div>
+      <div class="actions multiple">
+        <ql-button text="" class="dismissal-button" label="Cancel"><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-button gm-button-text ql-button default " aria-label="Cancel" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$-->Cancel
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template>
+        </ql-button>
+        <slot name="action"></slot>
+      </div>
+    
+        </ql-card>
+        <!--?lit$89829076$-->
+        <div class=" overlay "></div>
+      </div>
+    </template>
+<ql-button id="js-are-you-sure-button" label="Submit" slot="action" text=""><template shadowrootmode="open"><!---->
+      <!--?lit$89829076$-->
+      <div class="buttonContainer" aria-disabled="false">
+        <!--?lit$89829076$-->
+        <button type="button" class=" mdc-button gm-button-text ql-button default " aria-label="Submit" aria-busy="false">
+          <!--?lit$89829076$-->
+      <span class="mdc-button__ripple"></span>
+      <!--?lit$89829076$-->
+      <!--?lit$89829076$-->
+      <span class="mdc-button__label">
+        <!--?lit$89829076$-->Submit
+      </span>
+    
+    
+        </button>
+      </div>
+    
+      <!--?lit$89829076$-->
+    </template></ql-button>
+</ql-dialog>
+
+
+<script>
+  $(function() {
+    ql.surveys.pageView();
+  });
+</script>
+<script>
+  $(function() {
+    ql.initMaterialInputs();
+    initChosen();
+    initSearch();
+    initTabs();
+    ql.list.init();
+    ql.favoriting.init();
+    ql.header.myAccount.init();
+    initTooltips();
+    ql.autocomplete.init();
+    ql.modals.init();
+    ql.toggleButtons.init();
+    ql.analytics.init();
+    ql.labControlPanel.addRecaptchaErrorHandler();
+  initLabContent();
+  ql.labOutline.links.init();
+  initLabReviewModal();
+  initLabReviewTranslations( {"star_amount_1":"1 of 5 stars","star_amount_2":"2 of 5 stars","star_amount_3":"3 of 5 stars","star_amount_4":"4 of 5 stars","star_amount_5":"5 of 5 stars"} )
+  ql.labAssessment.init();
+  ql.labData.init();
+  initLabTranslations( {"are_you_sure":"All done? If you end this lab, you will lose all your work. You may not be able to restart the lab if there is a quota limit. Are you sure you want to end this lab?","in_progress":"*In Progress*","ending":"*Ending*","starting":"*Starting, please wait*","end_concurrent_labs":"Sorry, you can only run one lab at a time. To start this lab, please confirm that you want all of your existing labs to end.","copied":"Copied","no_resource":"Error retrieving resource.","no_support":"No Support","mac_press":"Press ⌘-C to copy","thanks_review":"Thanks for reviewing this lab.","windows_press":"Press Ctrl-C to copy","days":"days"} );
+  ql.labRun.init();
+  ql.chat.init();
+  ql.navPanel.init();
+  ql.navigation.init();
+  
+  });
+</script>
+
+
+
+
+<iframe data-product="web_widget" title="No content" role="presentation" tabindex="-1" allow="microphone *" aria-hidden="true" src="./sign_files/saved_resource(5).html" style="width: 0px; height: 0px; border: 0px; position: absolute; top: -9999px;"></iframe><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="./sign_files/anchor(2).html" width="256" height="60" role="presentation" name="a-qaoyzvl36tw2" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div><iframe id="apiproxy54d4b9cde3117001f42d5999b652f43bb86412ba0.2062554195" name="apiproxy54d4b9cde3117001f42d5999b652f43bb86412ba0.2062554195" src="./sign_files/proxy.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px; display: none;"></iframe><div style="visibility: visible;"><div></div><div><style>
+        @-webkit-keyframes ww-53bb1dbf-604c-4e32-a833-9708e3e6acf5-launcherOnOpen {
+          0% {
+            -webkit-transform: translateY(0px) rotate(0deg);
+                    transform: translateY(0px) rotate(0deg);
+          }
+
+          30% {
+            -webkit-transform: translateY(-5px) rotate(2deg);
+                    transform: translateY(-5px) rotate(2deg);
+          }
+
+          60% {
+            -webkit-transform: translateY(0px) rotate(0deg);
+                    transform: translateY(0px) rotate(0deg);
+          }
+
+
+          90% {
+            -webkit-transform: translateY(-1px) rotate(0deg);
+                    transform: translateY(-1px) rotate(0deg);
+
+          }
+
+          100% {
+            -webkit-transform: translateY(-0px) rotate(0deg);
+                    transform: translateY(-0px) rotate(0deg);
+          }
+        }
+        @keyframes ww-53bb1dbf-604c-4e32-a833-9708e3e6acf5-launcherOnOpen {
+          0% {
+            -webkit-transform: translateY(0px) rotate(0deg);
+                    transform: translateY(0px) rotate(0deg);
+          }
+
+          30% {
+            -webkit-transform: translateY(-5px) rotate(2deg);
+                    transform: translateY(-5px) rotate(2deg);
+          }
+
+          60% {
+            -webkit-transform: translateY(0px) rotate(0deg);
+                    transform: translateY(0px) rotate(0deg);
+          }
+
+
+          90% {
+            -webkit-transform: translateY(-1px) rotate(0deg);
+                    transform: translateY(-1px) rotate(0deg);
+
+          }
+
+          100% {
+            -webkit-transform: translateY(-0px) rotate(0deg);
+                    transform: translateY(-0px) rotate(0deg);
+          }
+        }
+
+        @keyframes ww-53bb1dbf-604c-4e32-a833-9708e3e6acf5-widgetOnLoad {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        @-webkit-keyframes ww-53bb1dbf-604c-4e32-a833-9708e3e6acf5-widgetOnLoad {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      </style><iframe title="Button to launch messaging window" style="color-scheme: light; height: 64px; width: 64px; position: fixed; bottom: 14px; right: 14px; transform: none; transform-origin: right bottom; border: 0px; margin-top: 0px; opacity: 0; box-shadow: rgba(23, 73, 77, 0.15) 0px 20px 30px; animation: 0.2s ease-in 0.5s 1 normal forwards running ww-53bb1dbf-604c-4e32-a833-9708e3e6acf5-widgetOnLoad; z-index: 999999; border-radius: 50%;" src="./sign_files/saved_resource(6).html"></iframe></div></div><script src="./sign_files/help_panel_binary.js.download"></script><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge expires in two minutes" src="./sign_files/bframe.html" name="c-ke0f6e7i16vj" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" style="width: 100%; height: 100%;"></iframe></div></div><div class="lab-content__image-overlay js-zoomed-image"><img class="lab-content__image" src="./sign_files/cBoI5P4dZ6k_Ar5Mv7eME_0fCb4G6nIGB0odCXzpEa4="></div></body></html>

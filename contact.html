@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Gyan-Lok Bookstore</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<nav class="bg-pink-300 p-2">
+    <div class="logo flex justify-left">
+        <img src="logo.jpg" alt="LOGO">
+        </div>
+    <ul class="flex justify-center">
+        <li class="mr-4 hover:text-green-600"><a href="home.html">Home</a></li>
+        <li class="mr-4 hover:text-green-600"><a href="books.html">Books</a>  </li>
+        <li class="mr-4 hover:text-green-600"><a href="best.html">Best-Sellers</a></li>
+        <li class="mr-4 hover:text-green-600"><a href="about.html">About-Us</a></li>
+        <li class="mr-4 hover:text-green-600"><a href="signin.html">Sign In</a></li>
+        <li class="mr-4 hover:text-green-600"><a href="register.html">Register</a></li>
+        <li class="mr-4 hover:text-green-600"><a href="contact.html">Contact-Us</a></li>
+        </ul>
+</nav>
+<body class="bg-gradient-to-r from-pink-400 via-purple-500 to-blue-300">
+    <header class="bg-blue-500 text-white p-4">
+        <h1 class="text-4xl font-bold text-center">Contact Us</h1>
+    </header>
+    <main class="container mx-auto p-4 animate-fadeIn">
+        
+        <h2 class="text-2xl font-semibold mb-4 text-white">Get in Touch</h2>
+        <div class="flex flex-col md:flex-row text-black">
+            <div class="md:w-1/2 p-4">
+                <p class="text-lg">Have questions or suggestions?</p><br><br>
+                <p class="text-lg">Want to collaborate with us?</p><br><br>
+                <p class="text-lg">Reach out to us!</p>
+            </div>
+            <div class="md:w-1/2 p-4">
+                <form>
+                    <input type="text" class="p-2 mb-4 rounded-md w-full" placeholder="Name" required>
+                    <input type="email" class="p-2 mb-4 rounded-md w-full" placeholder="Email" required>
+                    <textarea class="p-2 mb-4 rounded-md w-full h-32" placeholder="Message" required></textarea>
+                    <button type="submit" class="p-2 bg-green-500 text-white rounded-md w-full hover:bg-pink-600">Send</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-yellow-500 text-white p-4 text-center animate-slideInUp">
+        &copy; 2023 Gyan-Lok Bookstore
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
